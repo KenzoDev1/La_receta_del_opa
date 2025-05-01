@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crear Receta</title>
+  <link rel="stylesheet" href="css/styles_publicar.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container">
+    <h1 class="publicar-titulo">Publicar receta</h1>
+    <div class="form-container receta-form">
+      <form id="receta-form">
+        <div class="form-group">
+          <label for="titulo">Título</label>
+          <input type="text" id="titulo" placeholder="Ingresa el Título de la Receta" required />
+        </div>
+
+        <div class="form-group">
+          <label for="imagen">Adjuntar</label>
+          <input type="file" id="imagen" accept="image/*" style="display: none;" />
+          <button type="button" id="boton-adjuntar">+</button>
+          <span id="nombre-archivo" style="margin-left: 10px;"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="descripcion">Descripción</label>
+          <textarea id="descripcion" rows="4" placeholder="Detalla tu receta" required></textarea>
+        </div>
+
+        <button type="submit" class="boton-publicar">Publicar</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/script_publicar.js"></script>
+</body>
+</html>
