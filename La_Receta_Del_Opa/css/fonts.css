@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "Playfair Display Italic";
+    src: url(fonts/Playfair_Display/PlayfairDisplay-Italic-VariableFont_wght.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "Playfair Display";
+    src: url(fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: "DM Sans";
+    src: url(fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf) format("truetype");
+}
