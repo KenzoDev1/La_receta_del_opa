@@ -2,10 +2,58 @@ body {
     margin: 0;
 }
 
-.header {
-    margin: 0;
+.contact-info-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: #474747;
     color: #f9f9f7;
+    padding: 10px 100px;
+    font-family: DmSans, sans-serif;
 }
 
-/* 
+.contact-info {
+    display: flex;
+    gap: 15px;
+}
+
+.contact-info .item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact-info img {
+    width: 20px;
+    height: 20px;
+}
+
+.contact-info span {
+    font-size: 14px;
+}
+
+.social-media-buttons {
+    display: flex;
+    gap: 8px;
+}
+.botonRedSocial {
+    background: #f9f9f720;
+    border-radius: 50%;
+    border: none;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s ease;    
+}
+
+.botonRedSocial:hover {
+    background: #666;
+}
+
+.botonRedSocial img {
+    width: 18px;
+    height: 18px;
+}
