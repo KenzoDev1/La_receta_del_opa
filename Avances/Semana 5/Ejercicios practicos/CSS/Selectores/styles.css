@@ -1,0 +1,20 @@
+.faltante {
+    color : red
+}
+
+p {
+    font-size: 20px;
+    text-align: center;
+}
+.primer_parrafo {
+    color : blue;
+    font-family: Tahoma;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.segundo_parrafo {
+    color: gray;
+    font-family: "Roboto";
+}

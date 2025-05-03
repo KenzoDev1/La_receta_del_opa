@@ -1,0 +1,25 @@
+.box {
+    box-sizing: border-box;
+    height: 400px;
+    width: 300px;
+    padding: 20px;
+    padding-top: 5px;
+    background-color: #757575;
+    border-radius: 10px;
+    box-shadow: 0 0 40px 0 #0007;
+    margin: auto;
+    margin-top: 20px;
+}
+
+h2{
+    text-align: center;
+    font-family: sans-serif;
+    color: #dfdfdf; 
+    font-size: 30px;
+}
+
+p{
+    text-align: justify;
+    font-family: sans-serif;
+    color: #dfdfdf;
+}
