@@ -57,3 +57,64 @@ body {
     width: 18px;
     height: 18px;
 }
+
+.banner-principal {
+    background-image: url("../assets/img/banner-principal.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px
+}
+
+.contenido-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    color: #2c2f24;
+}
+
+.contenido-banner h1 {
+    width: 800px;
+    height: 250px;
+    padding: 20px 20px;
+    font-size: 100px;
+}
+
+.contenido-banner span  {
+    font-size: 23px;
+}
+.botones-banner {
+    display: flex;
+    gap: 20px;
+    font-family: DmSans, sans-serif;
+}
+
+.boton-crear-recetas {
+    background-color: #AD343E;
+    color: #f9f9f7;
+    padding: 20px 30px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.boton-crear-recetas:hover {
+    background-color: #8b2a31;
+}
+
+.boton-ver-recetas {
+    padding: 20px 30px;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.boton-ver-recetas:hover {
+    background-color: #d0d0d0;
+}
+
