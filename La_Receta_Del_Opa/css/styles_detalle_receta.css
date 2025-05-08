@@ -1,0 +1,444 @@
+/* Reseteo básico y fuentes */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif; /* Cambia la fuente si tienes una específica */
+    background-color: #f9f9f9; /* Color de fondo general si es necesario */
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Header Superior */
+.header-top {
+    background-color: #3b3b3b; /* Color de fondo de la barra superior */
+    color: #fff;
+    padding: 8px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85em;
+}
+
+.header-top .contact-info span {
+    margin-right: 20px;
+}
+
+.header-top .contact-info i,
+.header-top .social-media-top i {
+    margin-right: 5px;
+}
+
+.header-top .social-media-top a {
+    color: #fff;
+    margin-left: 15px;
+}
+
+/* Navegación Principal */
+.main-nav {
+    background-color: #fff; /* Fondo del nav principal */
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee; /* Borde inferior */
+}
+
+.main-nav .logo {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav .logo img {
+    height: 40px; /* Ajusta según el tamaño de tu logo */
+    margin-right: 10px;
+}
+
+.main-nav .logo h1 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #333; /* Color del título del logo */
+}
+
+.main-nav .nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav .nav-links li {
+    margin-left: 25px;
+}
+
+.main-nav .nav-links a {
+    font-size: 1em;
+    color: #555; /* Color de los enlaces */
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.main-nav .nav-links a:hover,
+.main-nav .nav-links a.active {
+    background-color: #f0f0f0; /* Color de fondo para enlace activo/hover */
+    color: #c74b50; /* Color del texto para enlace activo/hover */
+}
+
+.main-nav .nav-links a.register-btn {
+    background-color: transparent;
+    border: 1px solid #ccc; /* Borde del botón Registrarse */
+    color: #555;
+}
+
+.main-nav .nav-links a.register-btn:hover {
+    background-color: #c74b50;
+    color: #fff;
+    border-color: #c74b50;
+}
+
+.main-nav .nav-links a.active {
+    background-color: #c74b50; /* Color de fondo para el botón "Iniciar Sesión" activo */
+    color: #fff;
+}
+
+
+/* Contenedor del Login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea el formulario arriba */
+    padding: 80px 20px; /* Aumenta el padding superior para bajar el formulario */
+    background-color: #fff; /* Fondo de la sección de login */
+    min-height: calc(100vh - 250px); /* Ajusta para que el footer no se suba mucho */
+}
+
+.login-form-section {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); Descomentar si se desea sombra */
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+}
+
+.login-form-section h2 {
+    font-family: 'Georgia', serif; /* Fuente similar a la imagen para el título */
+    font-size: 3em; /* Tamaño del título "Iniciar Sesión" */
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: calc(100% - 22px); /* Ajusta para el padding y borde */
+    padding: 12px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.form-group input::placeholder {
+    color: #aaa;
+}
+
+.forgot-password {
+    display: block;
+    text-align: left;
+    font-size: 0.85em;
+    color: #c74b50; /* Color del enlace "Olvidaste tu contraseña" */
+    margin-bottom: 30px;
+    margin-top: -15px; /* Ajuste para acercarlo al input de contraseña */
+}
+
+.login-btn {
+    background-color: #c74b50; /* Color del botón de login */
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1em;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover {
+    background-color: #b23a40; /* Color del botón de login al pasar el mouse */
+}
+
+/* Footer */
+.main-footer {
+    background-color: #3b3b3b; /* Color de fondo del footer */
+    color: #ccc; /* Color de texto general del footer */
+    padding: 50px 5%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Para que se adapte en pantallas pequeñas */
+    gap: 30px; /* Espacio entre columnas del footer */
+    margin-bottom: 40px;
+}
+
+.footer-logo-section .logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer-logo-section .logo img {
+    height: 30px; /* Ajusta el tamaño del logo en el footer */
+    margin-right: 10px;
+}
+
+.footer-logo-section .logo h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.footer-social-media a {
+    color: #ccc;
+    margin-right: 15px;
+    font-size: 1.2em;
+}
+
+.footer-social-media a:hover {
+    color: #fff;
+}
+
+.footer-links h4,
+.footer-utility-links h4,
+.footer-instagram h4 {
+    color: #fff;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.footer-links ul li,
+.footer-utility-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-links ul li a,
+.footer-utility-links ul li a {
+    color: #ccc;
+    font-size: 0.95em;
+}
+
+.footer-links ul li a:hover,
+.footer-utility-links ul li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-instagram .instagram-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos imágenes por fila */
+    gap: 8px;
+}
+
+.footer-instagram .instagram-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.footer-copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #555; /* Línea divisoria */
+    font-size: 0.85em;
+    color: #aaa;
+}
+
+/* Media Queries para Responsividad (Ejemplo básico) */
+@media (max-width: 992px) {
+    .main-nav .nav-links {
+        display: none; /* Ocultar links para menú hamburguesa en móvil */
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-logo-section,
+    .footer-links,
+    .footer-utility-links,
+    .footer-instagram {
+        width: 100%;
+        max-width: 300px; /* Para centrar el contenido en móvil */
+        margin-bottom: 30px;
+    }
+    .footer-instagram .instagram-gallery {
+        grid-template-columns: repeat(4, 1fr); /* Mostrar 4 imágenes en fila en móvil si caben */
+    }
+}
+
+@media (max-width: 768px) {
+    .header-top {
+        flex-direction: column;
+        text-align: center;
+    }
+    .header-top .contact-info {
+        margin-bottom: 5px;
+    }
+    .main-nav {
+        flex-direction: column;
+    }
+    .main-nav .logo {
+        margin-bottom: 15px;
+    }
+    .login-container {
+        padding: 40px 15px;
+    }
+    .login-form-section h2 {
+        font-size: 2.2em;
+    }
+    .footer-instagram .instagram-gallery {
+        grid-template-columns: repeat(2, 1fr); /* Volver a 2 si 4 es mucho */
+    }
+}
+
+/* Estilos para la Página de Receta */
+.recipe-page-container {
+    background-color: #fff; /* Fondo blanco para el contenido de la receta */
+    padding: 40px 0; /* Espacio arriba y abajo */
+}
+
+.recipe-content {
+    max-width: 900px; /* Ancho máximo del contenido de la receta */
+    margin: 0 auto; /* Centrar el contenido */
+    padding: 0 20px; /* Espacio a los lados */
+}
+
+.recipe-title {
+    font-family: 'Georgia', 'Times New Roman', serif; /* Fuente con serifa para el título */
+    font-size: 2.8em; /* Tamaño del título de la receta */
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.recipe-main-image {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.recipe-main-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Bordes redondeados para la imagen */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.recipe-ingredients,
+.recipe-steps {
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.recipe-ingredients h3,
+.recipe-steps h3 {
+    font-size: 1.8em;
+    color: #444;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.ingredient-section {
+    margin-bottom: 20px;
+}
+
+.ingredient-section h4 {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.recipe-ingredients ul,
+.recipe-steps ol {
+    padding-left: 20px; /* Espacio para los bullets/números */
+    margin-left: 10px;
+}
+
+.recipe-ingredients ul li,
+.recipe-steps ol li {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.recipe-steps ol li strong {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Para la sub-lista en los pasos de preparación */
+.recipe-steps ol ol {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 30px; /* Mayor indentación para sub-lista */
+}
+
+.recipe-steps ol ol li {
+    font-size: 0.95em;
+    margin-bottom: 8px;
+}
+
+
+.promo-section {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.promo-section img,
+.promo-section iframe {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+
+/* Ajustes responsivos para la página de receta */
+@media (max-width: 768px) {
+    .recipe-title {
+        font-size: 2.2em;
+    }
+
+    .recipe-ingredients h3,
+    .recipe-steps h3 {
+        font-size: 1.5em;
+    }
+
+    .ingredient-section h4 {
+        font-size: 1.1em;
+    }
+
+    .recipe-content {
+        padding: 0 15px;
+    }
+}
