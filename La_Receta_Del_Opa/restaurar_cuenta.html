@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurar Cuenta - La Receta del Opa</title>
+    <link rel="stylesheet" href="css/styles_restaurar_cuenta.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="main-nav">
+            <div class="logo">
+                <img src="logo_olla.png" alt="La Receta del Opa Logo Icon">
+                <h1>La receta del Opa</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Recetas del opa</a></li>
+                <li><a href="#">Recetas de la comunidad</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-login active">Iniciar sesión</a>
+                <a href="registro.html" class="btn btn-register">Registrarse</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="form-page-section">
+        <h2 class="page-title">Restaurar cuenta</h2>
+        <div class="form-container">
+            <p class="form-instructional-text">
+                Te enviamos un código a tu correo, ingrésalo y escribe tu nueva contraseña.
+            </p>
+            <form>
+                <div class="form-group">
+                    <label for="nueva-contrasena">Nueva contraseña</label>
+                    <input type="password" id="nueva-contrasena" name="nueva-contrasena" placeholder="Ingresa tu contraseña">
+                </div>
+                <div class="form-group">
+                    <label for="repetir-nueva-contrasena">Repetir nueva contraseña</label>
+                    <input type="password" id="repetir-nueva-contrasena" name="repetir-nueva-contrasena" placeholder="Ingresa tu contraseña">
+                </div>
+                <button type="submit" class="btn-submit">Probar</button>
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>
