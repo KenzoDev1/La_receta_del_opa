@@ -1,8 +1,23 @@
 /* Reseteo básico y fuentes */
-body {
-    margin: 0;
+html {
+    height: 100%;
+    overflow: hidden;
     font-family: 'Open Sans', sans-serif;
     background-color: #f4f1ee;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
     color: #333;
     line-height: 1.6;
 }
@@ -10,6 +25,8 @@ body {
 h1, h2.page-title {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
+    color: #3a2e2e;
+    flex-shrink: 0;
 }
 
 a {
@@ -23,13 +40,15 @@ ul {
     margin: 0;
 }
 
-/* Contenedor del Header para ocupar el ancho completo y centrar el nav */
+/* Contenedor del Header */
 .site-header {
     background-color: #f4f1ee;
     padding-top: 15px;
     padding-bottom: 15px;
     width: 100%;
-    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+    flex-shrink: 0;
 }
 
 /* Barra de navegación principal */
@@ -41,7 +60,6 @@ ul {
     max-width: 1600px;
     margin: 0 auto;
     padding: 0 20px;
-    box-sizing: border-box;
 }
 
 .logo {
@@ -58,7 +76,6 @@ ul {
 .logo h1 {
     margin: 0;
     font-size: 1.9em;
-    color: #3a2e2e;
     white-space: nowrap;
 }
 
@@ -66,13 +83,13 @@ ul {
     display: flex;
     align-items: center;
     margin-left: auto;
-    margin-right: 30px;
+    margin-right: 20px;
     flex-shrink: 1;
     overflow: hidden;
 }
 
 .nav-links li {
-    margin-left: 35px;
+    margin-left: 30px;
 }
 
 .nav-links a {
@@ -80,12 +97,14 @@ ul {
     font-weight: 400;
     font-size: 0.95em;
     padding: 5px 0;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, font-weight 0.3s ease;
     white-space: nowrap;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active-main-link {
     color: #a93247;
+    font-weight: 600;
 }
 
 /* Estilos para los botones de autenticación en el header */
@@ -97,187 +116,193 @@ ul {
 
 .auth-buttons .btn {
     padding: 9px 22px;
-    border: 1.5px solid #d1ccc0; /* Borde por defecto para estado inactivo */
+    border: 1.5px solid #d1ccc0;
     border-radius: 25px;
     margin-left: 10px;
     font-size: 0.9em;
     font-weight: 600;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     white-space: nowrap;
-    background-color: transparent; /* Fondo por defecto para estado inactivo */
-    color: #3a2e2e; /* Color de texto por defecto para estado inactivo */
+    background-color: transparent;
+    color: #3a2e2e;
     cursor: pointer;
+    text-align: center;
 }
 
-/* Estilo para el botón ACTIVO (sea login o register) */
 .auth-buttons .btn.active {
-    background-color: #3a2e2e; /* Fondo oscuro para activo */
-    color: #fff; /* Texto blanco para activo */
-    border-color: #3a2e2e; /* Borde coincide con el fondo para activo */
+    background-color: #3a2e2e;
+    color: #fff;
+    border-color: #3a2e2e;
 }
 
-/* Hover para botones INACTIVOS */
 .auth-buttons .btn:not(.active):hover {
-    background-color: #a93247; /* Color principal del tema al hacer hover */
+    background-color: #a93247;
     color: #fff;
     border-color: #a93247;
 }
 
-
-/* Sección del Formulario (Login, Registro o Restaurar Cuenta) */
+/* Sección del Formulario */
 .form-page-section {
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px 80px 20px;
-    background-color: #f4f1ee;
+    padding: 30px 20px 20px 20px;
     width: 100%;
-    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .page-title {
     font-size: 3.2em;
-    color: #3a2e2e;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
+    margin-top: 10px;
 }
 
-.form-container {
+.form-container { /* Estilo base para contenedores de formulario */
     background-color: #fff;
-    padding: 45px 50px;
-    border-radius: 6px;
-    box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.09);
     width: 100%;
-    max-width: 800px;
     text-align: left;
-    box-sizing: border-box;
+    flex-shrink: 0;
 }
 
-/* Estilo para el texto de instrucción dentro del formulario */
-.form-instructional-text {
-    font-size: 0.9em;
+/* Contenedor específico para el layout de restaurar cuenta */
+.restore-form-layout-container {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Espacio entre el texto instructivo, el form grid y el botón de submit final */
+}
+
+.form-instructional-text.full-width-text {
+    font-size: 0.95em;
     font-weight: bold;
-    color: #555; /* Un gris un poco más oscuro que el placeholder */
-    margin-bottom: 25px; /* Espacio antes del primer grupo de formulario */
-    line-height: 1.5;
+    color: #454545;
+    line-height: 1.6;
     text-align: left;
+    width: 100%;
+}
+
+.restore-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+    gap: 20px 25px; /* Espacio vertical y horizontal entre celdas */
+    width: 100%;
 }
 
 .form-group {
-    margin-bottom: 25px;
+    margin-bottom: 0; /* El grid gap maneja el espaciado entre filas de la grid */
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 9px;
+    margin-bottom: 8px;
     font-weight: 600;
     color: #495057;
-    font-size: 0.95em;
+    font-size: 0.9em;
 }
 
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="password"] {
     width: 100%;
-    padding: 15px 12px;
+    padding: 14px 12px;
     border: 1px solid #d1ccc0;
     border-radius: 4px;
     font-size: 0.95em;
     font-family: 'Open Sans', sans-serif;
     background-color: #fdfdfd;
-    box-sizing: border-box;
 }
 .form-group input::placeholder {
     color: #adb5bd;
 }
 
-/* Estilos para el enlace "Olvidaste tu contraseña" (si se usa en la página de login) */
-.form-options {
-    text-align: left; /* O right, según diseño de login */
-    margin-bottom: 30px;
-    margin-top: -10px; /* Ajuste para acercarlo al campo anterior */
+.grid-item-resend-link {
+    display: flex;
+    align-items: center; /* Centra verticalmente el enlace si la celda es más alta */
+    justify-content: flex-start; /* Alinea el enlace a la izquierda de su celda */
+    /* Si el input de la izquierda es más alto, el enlace podría necesitar padding-top
+       o alinear el contenido de ambas celdas de la fila al final (align-items: end en el grid row)
+       o un padding específico para que coincida visualmente con la base del input.
+       Por ahora, align-items: center puede ser suficiente. */
 }
 
-.forgot-password {
+.resend-code-link {
+    display: inline-block; /* Para que no ocupe todo el ancho de la celda automáticamente */
     color: #a93247;
-    font-size: 0.9em;
     font-weight: 600;
-}
-
-.forgot-password:hover {
+    font-size: 0.9em;
     text-decoration: underline;
+    cursor: pointer;
+}
+.resend-code-link:hover {
+    color: #8c2739;
 }
 
-
-.btn-submit {
+/* Botón de submit que está fuera del form pero asociado por ID */
+.btn-submit.full-width-submit-button {
     background-color: #a93247;
     color: #fff;
-    padding: 15px 20px;
+    padding: 15px 20px; /* Padding incrementado para un botón más prominente */
     border: none;
     border-radius: 30px;
-    font-size: 1.05em;
+    font-size: 1.1em; /* Fuente más grande */
     font-weight: 600;
     cursor: pointer;
-    width: 100%;
+    width: 100%; /* Ocupa el ancho de .restore-form-layout-container */
     transition: background-color 0.3s ease;
     font-family: 'Open Sans', sans-serif;
-    margin-top: 10px;
-    box-sizing: border-box;
+    /* margin-top es manejado por el gap de .restore-form-layout-container */
 }
 
-.btn-submit:hover {
+.btn-submit.full-width-submit-button:hover {
     background-color: #8c2739;
 }
 
-/* Media Query para responsividad (ejemplo básico) */
+/* Media Query para responsividad */
+@media (max-width: 880px) {
+    /* Estilos de header responsivo ... */
+    .main-nav { flex-direction: column; align-items: center; width: 95%; gap: 15px; }
+    .nav-links { margin-left: 0; margin-right: 0; order: 2; flex-wrap: wrap; justify-content: center; }
+    .nav-links li { margin: 5px 10px; }
+    .auth-buttons { order: 3; }
+}
+
 @media (max-width: 768px) {
-    .main-nav {
-        flex-direction: column;
-        align-items: center;
-        width: 95%;
-    }
-
-    .logo {
-        margin-bottom: 15px;
-    }
-
-    .nav-links {
-        margin-left: 0;
-        margin-right: 0;
-        margin-bottom: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .nav-links li {
-        margin: 5px 10px;
-    }
-
-    .auth-buttons {
-        flex-direction: column;
-        width: 100%;
-    }
-     .auth-buttons .btn {
-        margin-left: 0;
-        margin-bottom: 10px;
-        width: 80%;
-        text-align: center;
-    }
-    .auth-buttons .btn:last-child {
-        margin-bottom: 0;
-    }
-
     .page-title {
         font-size: 2.5em;
+        margin-bottom: 25px;
     }
 
-    .form-container {
+    .form-container, /* Contenedor base */
+    .restore-form-layout-container { /* Contenedor específico también */
         max-width: 90%;
         padding: 30px 20px;
+        gap: 20px; /* Reducir gap en móvil */
     }
 
-    .form-instructional-text {
-        font-size: 0.85em;
-        margin-bottom: 20px;
+    .restore-form-grid {
+        grid-template-columns: 1fr; /* Cambia a una sola columna en móvil */
+        gap: 20px 0; /* Solo gap vertical */
+    }
+
+    .grid-item-resend-link {
+        justify-content: center; /* Centra el enlace de reenviar código en móvil */
+        margin-top: 5px; /* Pequeño espacio si es necesario */
+    }
+
+    .form-page-section {
+        padding-top: 20px;
+    }
+    .form-instructional-text.full-width-text {
+        font-size: 0.9em;
+        text-align: center;
+    }
+    .btn-submit.full-width-submit-button {
+        font-size: 1.05em; /* Ajustar tamaño de fuente del botón en móvil */
+        padding: 14px 18px;
     }
 }

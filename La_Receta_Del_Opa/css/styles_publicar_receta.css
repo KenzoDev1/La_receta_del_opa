@@ -1,0 +1,351 @@
+/* Reseteo básico y fuentes */
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f4f1ee;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2.page-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Contenedor del Header */
+.site-header {
+    background-color: #f4f1ee;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Barra de navegación principal */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo img {
+    height: 45px;
+    margin-right: 12px;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 1.9em;
+    color: #3a2e2e;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 30px; /* Espacio si hay acciones a la derecha */
+    flex-shrink: 1;
+    overflow: hidden;
+}
+
+.nav-links li {
+    margin-left: 35px;
+}
+
+.nav-links a {
+    color: #5c5050;
+    font-weight: 400;
+    font-size: 0.95em;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a.active-link { /* Estilo para un link de texto activo en nav-links */
+    color: #a93247; /* O el color oscuro #3a2e2e si prefieres */
+    font-weight: 600;
+}
+
+
+/* Estilos para acciones en el header (reemplaza .auth-buttons o se usa cuando está logueado) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.header-actions .btn, /* Para botones como Publicar Receta */
+.auth-buttons .btn { /* Para botones de Iniciar Sesión/Registro */
+    padding: 9px 22px;
+    border: 1.5px solid #d1ccc0;
+    border-radius: 25px;
+    margin-left: 10px;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    white-space: nowrap;
+    background-color: transparent;
+    color: #3a2e2e;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Estilo para el botón ACTIVO (sea login, register o una acción primaria como Publicar) */
+.header-actions .btn.active,
+.auth-buttons .btn.active {
+    background-color: #3a2e2e;
+    color: #fff;
+    border-color: #3a2e2e;
+}
+
+/* Hover para botones INACTIVOS en el header */
+.header-actions .btn:not(.active):hover,
+.auth-buttons .btn:not(.active):hover {
+    background-color: #a93247;
+    color: #fff;
+    border-color: #a93247;
+}
+
+/* Sección del Formulario (Login, Registro, Restaurar Cuenta, Publicar Receta) */
+.form-page-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px 80px 20px;
+    background-color: #f4f1ee;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.page-title {
+    font-size: 3.2em;
+    color: #3a2e2e;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+.form-container {
+    background-color: #fff;
+    padding: 45px 50px;
+    border-radius: 6px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 580px; /* Ligeramente más ancho para el form de publicar receta */
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.form-instructional-text {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 9px;
+    font-weight: 600;
+    color: #495057;
+    font-size: 0.95em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group textarea { /* Estilos comunes para inputs y textarea */
+    width: 100%;
+    padding: 15px 12px;
+    border: 1px solid #d1ccc0;
+    border-radius: 4px;
+    font-size: 0.95em;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #fdfdfd;
+    box-sizing: border-box;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #adb5bd;
+}
+
+.form-group textarea {
+    min-height: 120px; /* Altura mínima para el textarea */
+    resize: vertical; /* Permite al usuario redimensionar verticalmente */
+}
+
+/* Estilos para el área de subida de archivos */
+.file-upload-area {
+    position: relative; /* Para posicionar el input oculto */
+    width: 100px; /* Ancho del recuadro + */
+    height: 100px; /* Alto del recuadro + */
+}
+
+.file-input-hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Lo hace invisible */
+    cursor: pointer; /* Mantiene el cursor de puntero */
+    z-index: 10; /* Encima del label visual por si acaso */
+}
+
+.file-upload-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 50px;
+    border: 1.5px dashed #c0c0c0; /* Borde punteado */
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.file-upload-label:hover {
+    background-color: #f0f0f0;
+    border-color: #a0a0a0;
+}
+
+.file-upload-label .plus-icon {
+    font-size: 3em; /* Tamaño del "+" */
+    color: #b0b0b0;
+    line-height: 1; /* Asegura que el + no tenga espacio extra */
+}
+
+
+/* Estilos para el enlace "Olvidaste tu contraseña" (si se usa en la página de login) */
+.form-options {
+    text-align: left;
+    margin-bottom: 30px;
+    margin-top: -10px;
+}
+
+.forgot-password {
+    color: #a93247;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+
+.btn-submit {
+    background-color: #a93247;
+    color: #fff;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.05em;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+.btn-submit:hover {
+    background-color: #8c2739;
+}
+
+/* Media Query para responsividad (ejemplo básico) */
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column;
+        align-items: center;
+        width: 95%;
+    }
+    .header-actions { /* Ajusta el contenedor de acciones en móvil */
+        margin-top: 15px;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    .nav-links {
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-links li {
+        margin: 5px 10px;
+    }
+
+    /* Para apilar botones de autenticación si existieran */
+    .auth-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+     .auth-buttons .btn {
+        margin-left: 0;
+        margin-bottom: 10px;
+        width: 80%;
+        text-align: center;
+    }
+    .auth-buttons .btn:last-child {
+        margin-bottom: 0;
+    }
+
+    .page-title {
+        font-size: 2.5em;
+    }
+
+    .form-container {
+        max-width: 90%;
+        padding: 30px 20px;
+    }
+
+    .form-instructional-text {
+        font-size: 0.85em;
+        margin-bottom: 20px;
+    }
+
+    .file-upload-area,
+    .file-upload-label {
+        width: 80px; /* Más pequeño en móvil */
+        height: 80px;
+    }
+    .file-upload-label .plus-icon {
+        font-size: 2.5em;
+    }
+}

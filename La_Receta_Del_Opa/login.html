@@ -9,26 +9,27 @@
 </head>
 <body>
     <header class="site-header">
-        <nav class="main-nav container">
+        <nav class="main-nav">
             <div class="logo">
                 <img src="logo_olla.png" alt="La Receta del Opa Logo Icon">
                 <h1>La receta del Opa</h1>
             </div>
             <ul class="nav-links">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Recetas del opa</a></li>
-                <li><a href="#">Recetas de la comunidad</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Recetas del opa</a></li> <!--{/* Asumimos placeholder por ahora */}-->
+                <li><a href="#">Recetas de la comunidad</a></li> <!--{/* Asumimos placeholder por ahora */}-->
+                <li><a href="crear-receta.html">Crear receta</a></li>
             </ul>
             <div class="auth-buttons">
-                <a href="#" class="btn btn-login active">Iniciar sesión</a>
-                <a href="#" class="btn btn-register">Registrarse</a>
+                <a href="login.html" class="btn btn-login active">Iniciar sesión</a>
+                <a href="registro.html" class="btn btn-register">Registrarse</a>
             </div>
         </nav>
     </header>
 
-    <main class="login-section">
+    <main class="form-page-section">
         <h2 class="page-title">Iniciar Sesión</h2>
-        <div class="login-container">
+        <div class="form-container">
             <form>
                 <div class="form-group">
                     <label for="username">Nombre de usuario/correo electrónico</label>
@@ -39,12 +40,12 @@
                     <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña">
                 </div>
                 <div class="form-options">
-                    <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                    <!--{/* ENLACE CORREGIDO AQUÍ */}-->
+                    <a href="restaurar_cuenta.html" class="forgot-password">¿Olvidaste tu contraseña?</a>
                 </div>
                 <button type="submit" class="btn-submit">Ingresar</button>
             </form>
         </div>
     </main>
-
 </body>
 </html>
