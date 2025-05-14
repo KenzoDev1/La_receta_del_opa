@@ -1,0 +1,3 @@
+Durante esta semana se estuvo realizando cambios al figma, esto por temas de mejorar la navegación de la pagina y simplificar la misma.
+Además de realizar arreglos a las interfazes "index.html", "login.html" y "registro.html"
+Otro cambio importante es que se agregaron para todas las interfazes colores variables, esto para llevar una buena practica a la hora de asignarle una paleta de colores definida para la pagina.
