@@ -19,5 +19,5 @@ Foro web creado para poder compartir tus propias resetas, ademá de tambien pode
 * HTML 5
 * CSS
 * Javascript
-* MySQL
+* Supabase (PostgreSQL)
 * GitHub
