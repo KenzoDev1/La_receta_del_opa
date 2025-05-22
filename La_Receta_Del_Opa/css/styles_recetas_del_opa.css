@@ -1,0 +1,299 @@
+/* --- :root Variables CSS (Deben ser consistentes con styles_navbar.css y styles_footer.css si los tienes) --- */
+:root {
+    --color-primary: #a93247;
+    --color-primary-darker: #8c2739;
+    --color-dark-text: #3a2e2e;
+    --color-body-text: #333;
+    --color-light-text: #5c5050;
+    --color-hero-text: #fff;
+    --color-meta-text: #777;
+    
+    --color-background-page: #f4f1ee;
+    --color-background-content: #fff; /* Para tarjetas */
+    --color-background-hero-overlay: rgba(0, 0, 0, 0.5); /* Overlay oscuro para el hero */
+    --color-background-button-filter: #fff;
+    --color-background-button-filter-active: var(--color-primary);
+    --color-text-button-filter-active: #fff;
+    --color-border-button-filter: #d1ccc0;
+    --color-border-search: #d1ccc0;
+    --color-border-general: #e0e0e0; /* Para bordes generales como el de filter-section */
+
+    --color-white: #fff;
+
+    --font-primary: 'Playfair Display', serif;
+    --font-secondary: 'Open Sans', sans-serif;
+
+    --box-shadow-light: 0 4px 15px rgba(0,0,0,0.07);
+    --box-shadow-card-hover: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* --- Estilos Base y Layout de Página con Scroll --- */
+html {
+    font-family: var(--font-secondary);
+    background-color: var(--color-background-page);
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body { /* Para páginas con scroll normal */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--color-body-text);
+    background-color: var(--color-background-page);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* --- Estilos Específicos para el Contenido de "Recetas del Opa" --- */
+.page-content-recetas {
+    /* Espacio para el navbar si es fijo, o simplemente flujo normal */
+}
+
+/* Hero Section Específico para esta página */
+.hero-section-recetas {
+    position: relative;
+    padding: 100px 0; /* Ajustar padding según el diseño */
+    text-align: center;
+    background-image: url("../assets/img/banner-receta-del-opa.svg"); /* REEMPLAZA CON TU IMAGEN DE FONDO */
+    background-size: cover;
+    background-position: center center;
+    color: var(--color-hero-text);
+    min-height: 50vh; /* Altura del hero section */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay-recetas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-background-hero-overlay);
+    z-index: 1;
+}
+
+.hero-content-recetas {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title-recetas {
+    font-family: var(--font-primary);
+    font-size: 3.8em; /* Tamaño grande para el título */
+    margin-bottom: 0.3em;
+    line-height: 1.1;
+    color: var(--color-hero-text); /* Asegurar que el color del título sea el correcto */
+}
+
+.hero-subtitle-recetas {
+    font-family: var(--font-secondary);
+    font-size: 1.1em;
+    max-width: 700px; /* Ancho del subtítulo */
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.9); /* Texto ligeramente transparente para destacar sobre el overlay */
+}
+
+/* Sección de Filtros y Búsqueda */
+.filter-and-search-section {
+    padding: 40px 0; /* Padding vertical */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Para que se ajusten en pantallas pequeñas */
+    gap: 20px; /* Espacio entre filtros y búsqueda */
+    border-bottom: 1px solid var(--color-border-general);
+    margin-bottom: 50px; /* Espacio antes de la cuadrícula de recetas */
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacio entre botones de filtro */
+}
+
+.filter-btn {
+    font-family: var(--font-secondary);
+    background-color: var(--color-background-button-filter);
+    color: var(--color-light-text);
+    border: 1px solid var(--color-border-button-filter);
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.filter-btn.active-filter {
+    background-color: var(--color-primary);
+    color: var(--color-text-button-filter-active);
+    border-color: var(--color-primary);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-border-search);
+    border-radius: 20px; /* Redondez de la barra de búsqueda completa */
+    padding-left: 15px; /* Padding para el input */
+    background-color: var(--color-background-content); /* Fondo blanco para la barra */
+    overflow: hidden; /* Para que el botón no rompa el border-radius */
+}
+
+.search-bar input[type="text"] {
+    border: none;
+    outline: none;
+    padding: 10px 0; /* Padding vertical para el input */
+    font-size: 0.9em;
+    background-color: transparent; /* Input transparente dentro de la barra */
+    width: 200px; /* Ancho inicial, puede crecer si es necesario */
+    color: var(--color-body-text);
+}
+.search-bar input[type="text"]::placeholder {
+    color: var(--color-placeholder-text);
+}
+
+.search-bar button {
+    background-color: transparent; /* Botón de búsqueda transparente */
+    border: none;
+    color: var(--color-light-text);
+    padding: 10px 15px; /* Padding para el botón de búsqueda */
+    cursor: pointer;
+    font-size: 1em; /* Tamaño del icono */
+    /* Los border-radius del botón ya no son necesarios si .search-bar tiene overflow:hidden */
+}
+.search-bar button:hover {
+    color: var(--color-primary);
+}
+
+/* Sección de la Cuadrícula de Recetas */
+.recipe-grid-section {
+    padding-bottom: 70px; /* Espacio al final de la página */
+}
+
+.recipe-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Cuadrícula responsiva */
+    gap: 30px; /* Espacio entre tarjetas */
+}
+
+.recipe-card {
+    background-color: var(--color-background-content);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow-light);
+    overflow: hidden; /* Para que la imagen no sobresalga del borde redondeado */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-card-hover);
+}
+
+.recipe-card-image-wrapper {
+    width: 100%;
+    height: 200px; /* Altura fija para la imagen de la receta */
+    overflow: hidden; /* Asegura que la imagen no desborde */
+    background-color: #eee; /* Color de fondo mientras carga la imagen */
+}
+.recipe-card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* La imagen cubre el espacio sin deformarse */
+}
+
+.recipe-card-content {
+    padding: 20px;
+    flex-grow: 1; /* Para que el contenido ocupe espacio si las tarjetas tienen alturas diferentes */
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-card-title {
+    font-family: var(--font-primary);
+    font-size: 1.3em;
+    color: var(--color-dark-text);
+    margin-bottom: 8px;
+}
+
+.recipe-card-description {
+    font-family: var(--font-secondary);
+    font-size: 0.9em;
+    color: var(--color-light-text);
+    line-height: 1.5;
+    flex-grow: 1; /* Para empujar un posible link de "ver receta" hacia abajo */
+    /* Para limitar texto a X líneas (requiere más CSS o JS):
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    */
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+    .hero-title-recetas {
+        font-size: 2.8em;
+    }
+    .hero-subtitle-recetas {
+        font-size: 1em;
+    }
+    .filter-and-search-section {
+        flex-direction: column;
+        align-items: stretch; /* Botones y búsqueda ocupan ancho */
+    }
+    .filter-buttons {
+        justify-content: center; /* Centrar botones de filtro */
+        margin-bottom: 20px; /* Espacio si la búsqueda va debajo */
+    }
+    .search-bar {
+        width: 100%; /* Barra de búsqueda ocupa ancho completo */
+    }
+    .search-bar input[type="text"] {
+        width: calc(100% - 60px); /* Ajustar para el botón de búsqueda */
+    }
+    .recipe-cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title-recetas {
+        font-size: 2.2em;
+    }
+    .filter-btn {
+        padding: 8px 15px;
+        font-size: 0.85em;
+        flex-grow: 1; /* Para que los botones se distribuyan mejor si hay pocos */
+    }
+    .recipe-cards-container {
+        grid-template-columns: 1fr; /* Una columna en móviles muy pequeños */
+    }
+    .recipe-card-title {
+        font-size: 1.2em;
+    }
+}

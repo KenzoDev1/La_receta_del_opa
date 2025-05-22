@@ -3,46 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurar Cuenta - La Receta del Opa</title>
+    <title>Restaurar Cuenta - Contenido</title>
     <link rel="stylesheet" href="css/styles_restaurar_cuenta.css">
+    <link rel="stylesheet" href="css/styles_navbar.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="fixed-page">
+    <!--NAVBAR-->
     <header class="site-header">
+        <!--Barra de navegacion-->
         <nav class="main-nav">
+            <!--Logo y eslogan-->
             <div class="logo">
-                <img src="logo_olla.png" alt="La Receta del Opa Logo Icon">
-                <h1>La receta del Opa</h1>
+                <img src="assets/img/icono.svg" alt="La Receta del Opa Logo Icon"> <h1>La receta del Opa</h1>
             </div>
+            <!--Conjunto de enlaces-->
             <ul class="nav-links">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Recetas del opa</a></li>
-                <li><a href="#">Recetas de la comunidad</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="recetas_del_opa.html">Recetas del opa</a></li>
+                <li><a href="recetas_de_la_comunidad.html">Recetas de la comunidad</a></li>
+                <li><a href="publicar_receta.html">Publicar receta</a></li>
             </ul>
+            <!--Botones de iniciar sesion y registrarse-->
             <div class="auth-buttons">
-                <a href="login.html" class="btn btn-login active">Iniciar sesión</a>
-                <a href="registro.html" class="btn btn-register">Registrarse</a>
+                <a href="login.html" class="btn btn-primary-action">Iniciar sesión</a>
+                <a href="registro.html" class="btn btn-secondary-action">Registrarse</a>
             </div>
         </nav>
     </header>
 
     <main class="form-page-section">
         <h2 class="page-title">Restaurar cuenta</h2>
-        <div class="form-container">
-            <p class="form-instructional-text">
+        <div class="form-container restore-form-layout-container">
+            <p class="form-instructional-text full-width-text">
                 Te enviamos un código a tu correo, ingrésalo y escribe tu nueva contraseña.
             </p>
-            <form>
-                <div class="form-group">
-                    <label for="nueva-contrasena">Nueva contraseña</label>
-                    <input type="password" id="nueva-contrasena" name="nueva-contrasena" placeholder="Ingresa tu contraseña">
+            <form class="restore-form-grid" id="restoreAccountForm">
+                <div class="form-group grid-item-new-password">
+                    <label for="new-password">Nueva contraseña</label>
+                    <input type="password" id="new-password" name="new-password" placeholder="Ingresa tu nueva contraseña">
                 </div>
-                <div class="form-group">
-                    <label for="repetir-nueva-contrasena">Repetir nueva contraseña</label>
-                    <input type="password" id="repetir-nueva-contrasena" name="repetir-nueva-contrasena" placeholder="Ingresa tu contraseña">
+                <div class="form-group grid-item-confirm-password">
+                    <label for="confirm-new-password">Repetir nueva contraseña</label>
+                    <input type="password" id="confirm-new-password" name="confirm-new-password" placeholder="Confirma tu nueva contraseña">
                 </div>
-                <button type="submit" class="btn-submit">Probar</button>
+                <div class="form-group grid-item-code">
+                    <label for="reset-code">Código de verificación</label>
+                    <input type="text" id="reset-code" name="reset-code" placeholder="Ingresa el código recibido">
+                </div>
+                <div class="grid-item-resend-link">
+                    <a href="#" class="resend-code-link">Reenviar código de verificación</a>
+                </div>
             </form>
+            <button type="submit" form="restoreAccountForm" class="btn-submit full-width-submit-button">Probar</button>
         </div>
     </main>
 

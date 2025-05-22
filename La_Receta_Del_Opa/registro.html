@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - La Receta del Opa</title>
+    <link rel="stylesheet" href="css/styles_registro.css">
+    <link rel="stylesheet" href="css/styles_navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="fixed-page">
+    <!--NAVBAR-->
+    <header class="site-header">
+        <!--Barra de navegacion-->
+        <nav class="main-nav">
+            <!--Logo y eslogan-->
+            <div class="logo">
+                <img src="assets/img/icono.svg" alt="La Receta del Opa Logo Icon"> <h1>La receta del Opa</h1>
+            </div>
+            <!--Conjunto de enlaces-->
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="recetas_del_opa.html">Recetas del opa</a></li>
+                <li><a href="recetas_de_la_comunidad.html">Recetas de la comunidad</a></li>
+                <li><a href="publicar_receta.html">Publicar receta</a></li>
+            </ul>
+            <!--Botones de iniciar sesion y registrarse-->
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-primary-action">Iniciar sesión</a>
+                <a href="registro.html" class="btn btn-secondary-action">Registrarse</a>
+            </div>
+        </nav>
+    </header>
+
+    
+    <main class="form-page-section">
+        <h2 class="page-title">Registro</h2>
+        <div class="form-container wide-form">
+            <form>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reg-username">Usuario</label>
+                        <input type="text" id="reg-username" name="username" placeholder="Ingresa un nombre de usuario">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-password">Contraseña</label>
+                        <input type="password" id="reg-password" name="password" placeholder="Ingresa tu contraseña">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reg-email">Correo electrónico</label>
+                        <input type="email" id="reg-email" name="email" placeholder="Ingresa un correo electrónico">
+                    </div>
+                    <div class="form-group">
+                        <label for="reg-confirm-password">Confirmar contraseña</label>
+                        <input type="password" id="reg-confirm-password" name="confirm-password" placeholder="Ingresa tu contraseña">
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit">Registrar</button>
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -1,260 +1,202 @@
-/* Reseteo básico y fuentes */
-body {
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
-    background-color: #f4f1ee;
-    color: #333;
-    line-height: 1.6;
+/* --- :root Variables CSS (Deben ser consistentes con styles_navbar.css) --- */
+:root {
+    --color-primary-accent: #a93247; /* Para enlaces como "¿Olvidaste tu contraseña?" y el botón de submit */
+    --color-primary-submit: #a93247; /* Específico para el botón de submit del formulario */
+    --color-primary-submit-darker: #8c2739; /* Hover del botón de submit */
+    
+    --color-page-title-text: #3a2e2e; /* Color para títulos grandes como "Iniciar Sesión" */
+    --color-label-text: #495057; /* Color para las etiquetas de los campos */
+    --color-input-text: #333; /* Color del texto dentro de los inputs */
+    --color-placeholder-text: #adb5bd; /* Color del texto placeholder */
+    
+    --color-page-background: #f4f1ee; /* Fondo general de la página */
+    --color-form-background: #fff; /* Fondo del contenedor del formulario */
+    --color-input-background: #fdfdfd; /* Fondo de los campos de input */
+    
+    --color-border: #d1ccc0; /* Borde para los inputs */
+    --color-white: #fff; /* Texto para el botón de submit */
+
+    --font-page-title: 'Playfair Display', serif; /* Fuente para el título grande */
+    --font-form: 'Open Sans', sans-serif; /* Fuente para el contenido del formulario */
+
+    --box-shadow-form: 0 4px 25px rgba(0,0,0,0.08); /* Sombra para el contenedor del formulario */
 }
 
-h1, h2.page-title {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* Contenedor del Header para ocupar el ancho completo y centrar el nav */
-.site-header {
-    background-color: #f4f1ee;
-    padding-top: 15px; /* Ajustado */
-    padding-bottom: 15px; /* Ajustado */
-    width: 100%;
-    box-sizing: border-box; /* Para que padding no afecte el width total */
-}
-
-/* Barra de navegación principal */
-.main-nav {
-    display: flex;
-    justify-content: space-between; /* Distribuye el espacio: logo a la izq, links y botones a la der */
-    align-items: center;
-    width: 90%; /* Ocupa un porcentaje del ancho del site-header */
-    max-width: 1600px; /* Un límite máximo grande para pantallas muy anchas */
-    margin: 0 auto; /* Centra el nav si el width es menor al 100% del site-header */
-    padding: 0 20px; /* Padding horizontal interno para que el contenido no toque los bordes del nav */
+/* --- Estilos Base Mínimos (si este CSS es el único que afecta al body/html de esta página) --- */
+html {
+    font-family: var(--font-form); /* Fuente base para la página */
+    background-color: var(--color-page-background);
     box-sizing: border-box;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0; /* Evita que el logo se encoja */
+*, *::before, *::after {
+    box-sizing: inherit;
 }
 
-.logo img {
-    height: 45px; /* Puedes ajustar esto */
-    margin-right: 12px;
-}
-
-.logo h1 {
+body {
     margin: 0;
-    font-size: 1.9em; /* Ajustado */
-    color: #3a2e2e;
-    white-space: nowrap; /* Evita que el título del logo se parta */
+    padding: 0;
+    line-height: 1.6;
+    color: var(--color-input-text);
+    background-color: var(--color-page-background);
 }
 
-.nav-links {
-    display: flex;
-    align-items: center;
-    margin-left: auto; /* Empuja los links hacia la derecha, lejos del logo */
-    margin-right: 30px; /* Espacio entre los nav-links y los auth-buttons */
-    flex-shrink: 1; /* Permite que los links se encojan si es necesario */
-    overflow: hidden; /* Oculta items si no caben (considerar menú hamburguesa para móvil) */
+/* Estilos para que esta página sea fija (asumiendo que el navbar ya está manejado) */
+body.fixed-page {
+    height: 100vh;
+    overflow: hidden;
+    display: flex; /* Si el header y main son hijos directos */
+    flex-direction: column;
 }
-
-.nav-links li {
-    margin-left: 35px; /* Espacio entre elementos de la lista */
+body.fixed-page .site-header { /* Asumiendo que el header tiene esta clase */
+    flex-shrink: 0;
 }
-
-.nav-links a {
-    color: #5c5050;
-    font-weight: 400;
-    font-size: 0.95em; /* Ajustado */
-    padding: 5px 0;
-    transition: color 0.3s ease;
-    white-space: nowrap; /* Evita que el texto del link se parta */
-}
-
-.nav-links a:hover {
-    color: #a93247;
-}
-
-.auth-buttons {
-    display: flex;
-    align-items: center;
-    flex-shrink: 0; /* Evita que los botones se encojan */
-}
-
-.auth-buttons .btn {
-    padding: 9px 22px; /* Ajustado */
-    border: 1.5px solid #d1ccc0;
-    border-radius: 25px;
-    margin-left: 10px;
-    font-size: 0.9em; /* Ajustado */
-    font-weight: 600;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-    white-space: nowrap;
-}
-
-.auth-buttons .btn-login.active {
-    background-color: #3a2e2e;
-    color: #fff;
-    border-color: #3a2e2e;
-}
-
-.auth-buttons .btn-register {
-    background-color: transparent;
-    color: #3a2e2e;
-}
-
-.auth-buttons .btn-register:hover {
-    background-color: #a93247;
-    color: #fff;
-    border-color: #a93247;
-}
-
-/* Login Section */
-.login-section {
+body.fixed-page main.form-page-section { /* main es el contenedor del contenido principal */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px 80px 20px; /* Ajustado */
-    background-color: #f4f1ee;
+    justify-content: center; /* Centra el bloque título + form verticalmente */
+    padding: 20px; /* Padding general */
     width: 100%;
-    box-sizing: border-box;
+    overflow: hidden;
+}
+body.fixed-page h2.page-title {
+    flex-shrink: 0; /* Evita que el título se encoja */
+}
+body.fixed-page .form-container {
+    flex-shrink: 0; /* Evita que el formulario se encoja */
 }
 
-.page-title {
-    font-size: 3.2em; /* Ajustado */
-    color: #3a2e2e;
+
+/* --- Estilos Específicos para el Contenido de la Página de Login --- */
+.form-page-section {
+    /* Estilos base si la página no es fija (serán sobreescritos por body.fixed-page) */
+    padding: 40px 20px 80px 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.page-title { /* Título "Iniciar Sesión" */
+    font-family: var(--font-page-title);
+    font-size: 3.2em; /* Tamaño como en la imagen */
     text-align: center;
-    margin-bottom: 40px; /* Ajustado */
+    margin-bottom: 40px; /* Espacio entre el título y el contenedor del formulario */
+    color: var(--color-page-title-text);
+}
+body.fixed-page .page-title {
+    margin-top: 0; /* En página fija, el justify-content del padre lo centra */
+    margin-bottom: 35px; /* Espacio consistente con versiones anteriores */
 }
 
-.login-container {
-    background-color: #fff;
-    padding: 45px 50px; /* Ajustado */
+
+.form-container {
+    background-color: var(--color-form-background);
+    padding: 45px 50px;
     border-radius: 6px;
-    box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+    box-shadow: var(--box-shadow-form);
     width: 100%;
-    max-width: 800px; /* Ancho del formulario ligeramente ajustado */
-    text-align: left; /* Alineación del texto dentro del formulario */
-    box-sizing: border-box;
+    max-width: 480px; /* Ancho del formulario de login */
+    text-align: left;
 }
+body:not(.fixed-page) .form-container { /* Para centrar si la página tuviera scroll */
+    margin-top: 30px; 
+    margin-bottom: 30px;
+}
+
 
 .form-group {
-    margin-bottom: 25px; /* Ajustado */
+    margin-bottom: 22px;
 }
 
 .form-group label {
     display: block;
-    margin-bottom: 9px; /* Ajustado */
+    margin-bottom: 9px;
     font-weight: 600;
-    color: #495057;
-    font-size: 0.95em; /* Ajustado */
+    color: var(--color-label-text);
+    font-size: 0.95em;
+    font-family: var(--font-form);
 }
 
 .form-group input[type="text"],
+.form-group input[type="email"], /* Incluido por si se reutiliza para otros forms */
 .form-group input[type="password"] {
-    width: 100%; /* Ocupa todo el ancho disponible del form-group */
-    padding: 15px 12px; /* Ajustado */
-    border: 1px solid #d1ccc0;
+    width: 100%;
+    padding: 14px 12px;
+    border: 1px solid var(--color-border);
     border-radius: 4px;
-    font-size: 0.95em; /* Ajustado */
-    font-family: 'Open Sans', sans-serif;
-    background-color: #fdfdfd;
-    box-sizing: border-box; /* Importante para que el padding no aumente el ancho total */
+    font-size: 0.95em;
+    font-family: var(--font-form);
+    background-color: var(--color-input-background);
+    color: var(--color-input-text);
 }
-.form-group input[type="text"]::placeholder,
-.form-group input[type="password"]::placeholder {
-    color: #adb5bd;
+.form-group input::placeholder {
+    color: var(--color-placeholder-text);
 }
 
 .form-options {
     text-align: left;
-    margin-bottom: 30px; /* Ajustado */
-    margin-top: -10px; /* Ajustado */
+    margin-bottom: 30px;
+    margin-top: -10px; /* Para acercarlo al campo de contraseña */
 }
 
 .forgot-password {
-    color: #a93247;
-    font-size: 0.9em; /* Ajustado */
+    color: var(--color-primary-accent);
+    font-size: 0.9em;
     font-weight: 600;
+    font-family: var(--font-form);
 }
-
 .forgot-password:hover {
     text-decoration: underline;
 }
 
 .btn-submit {
-    background-color: #a93247;
-    color: #fff;
-    padding: 15px 20px; /* Ajustado */
+    background-color: var(--color-primary-submit);
+    color: var(--color-white);
+    padding: 15px 20px;
     border: none;
     border-radius: 30px;
-    font-size: 1.05em; /* Ajustado */
+    font-size: 1.05em;
     font-weight: 600;
     cursor: pointer;
     width: 100%;
     transition: background-color 0.3s ease;
-    font-family: 'Open Sans', sans-serif;
-    margin-top: 10px; /* Ajustado */
-    box-sizing: border-box;
+    font-family: var(--font-form);
+    margin-top: 10px;
 }
 
 .btn-submit:hover {
-    background-color: #8c2739;
+    background-color: var(--color-primary-submit-darker);
 }
 
-/* Consideraciones para pantallas muy pequeñas (ejemplo básico) */
+/* --- Media Queries (Adaptadas para esta página de login) --- */
 @media (max-width: 768px) {
-    .main-nav {
-        flex-direction: column;
-        align-items: center; /* Centra el logo cuando se apila */
-        width: 95%; /* Ajusta el ancho para pantallas pequeñas */
+    body.fixed-page .form-page-section {
+        justify-content: flex-start; /* Sube el formulario en pantallas pequeñas fijas */
+        padding-top: 10vh; /* Un espacio desde arriba */
     }
-
-    .logo {
-        margin-bottom: 15px; /* Espacio debajo del logo */
-    }
-
-    .nav-links {
-        margin-left: 0;
-        margin-right: 0;
-        margin-bottom: 15px; /* Espacio debajo de los links */
-        flex-wrap: wrap; /* Permite que los links se ajusten en varias líneas si es necesario */
-        justify-content: center;
-    }
-
-    .nav-links li {
-        margin: 5px 10px; /* Menos margen lateral, añade margen vertical */
-    }
-
-    .auth-buttons {
-        justify-content: center; /* Centra los botones */
-        width: 100%;
-    }
-     .auth-buttons .btn {
-        margin-left: 5px;
-        margin-right: 5px;
-        padding: 8px 15px;
-    }
-
     .page-title {
         font-size: 2.5em;
+        margin-bottom: 25px;
     }
-
-    .login-container {
+    .form-container {
         max-width: 90%;
         padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 2em;
+    }
+    .form-group label,
+    .form-group input,
+    .forgot-password {
+        font-size: 0.9em; /* Reducir un poco en móviles muy pequeños */
+    }
+    .btn-submit {
+        font-size: 1em;
     }
 }

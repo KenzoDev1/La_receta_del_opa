@@ -1,0 +1,295 @@
+/* --- :root Variables CSS (Deben ser consistentes con styles_navbar.css) --- */
+:root {
+    --color-primary-accent: #a93247;
+    --color-primary-submit: #a93247;
+    --color-primary-submit-darker: #8c2739;
+    
+    --color-button-primary-bg: #3a2e2e;
+    --color-button-primary-text: #fff;
+    --color-button-secondary-bg: transparent;
+    --color-button-secondary-text: var(--color-button-primary-bg);
+    --color-button-secondary-border: #d1ccc0; 
+    
+    --color-logo-text: #3a2e2e;
+    --color-page-title-text: #3a2e2e;
+    --color-nav-link-text: #5c5050;
+    --color-label-text: #495057;
+    --color-input-text: #333;
+    --color-placeholder-text: #adb5bd;
+    --color-required-asterisk: var(--color-primary-accent); /* Color para el asterisco de campos obligatorios */
+    
+    --color-header-background: #f4f1ee;
+    --color-page-background: #f4f1ee;
+    --color-form-background: #fff;
+    --color-input-background: #fdfdfd;
+    --color-upload-box-background: #f9f9f9;
+    --color-upload-box-background-hover: #f0f0f0;
+    --color-upload-box-border: #d1ccc0;
+    --color-upload-box-text: #777;
+    --color-upload-box-icon: var(--color-primary-accent);
+
+    --color-border: #d1ccc0;
+    --color-white: #fff;
+
+    --font-logo: 'Playfair Display', serif;
+    --font-page-title: 'Playfair Display', serif;
+    --font-nav: 'Open Sans', sans-serif;
+    --font-form: 'Open Sans', sans-serif;
+
+    --box-shadow-form: 0 4px 25px rgba(0,0,0,0.08);
+}
+
+/* --- Estilos Base y Layout de Página con Scroll --- */
+html {
+    font-family: var(--font-form);
+    background-color: var(--color-page-background);
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--color-input-text);
+    background-color: var(--color-page-background);
+}
+
+/* --- Estilos Específicos para el Contenido de "Publicar Receta" --- */
+h2.page-title {
+    font-family: var(--font-page-title);
+    font-size: 3.2em;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    color: var(--color-page-title-text);
+}
+
+.form-page-section {
+    padding: 30px 20px 60px 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container.publish-recipe-container {
+    background-color: var(--color-form-background);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow-form);
+    width: 100%;
+    max-width: 960px; /* Aumentado un poco más para acomodar todo */
+    text-align: left;
+}
+
+.publish-form-columns-layout {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 25px; /* Espacio antes de los textareas grandes */
+}
+
+.form-column-left {
+    flex: 1.7; /* Dar un poco más de espacio a la columna con más campos pequeños */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre los form-groups dentro de la columna */
+}
+
+.form-column-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.form-column-right .form-group {
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+}
+
+.form-group {
+    margin-bottom: 0; /* El gap del contenedor flex padre maneja el espaciado */
+}
+/* Para los textareas grandes que están directamente bajo el form */
+#publishRecipeForm > .form-group {
+    margin-bottom: 25px;
+}
+
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px; /* Reducido ligeramente */
+    font-weight: 600;
+    color: var(--color-label-text);
+    font-size: 0.95em; /* Unificado */
+    font-family: var(--font-form);
+}
+.required-asterisk {
+    color: var(--color-required-asterisk);
+    margin-left: 2px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px; /* Ajustado padding */
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    font-size: 0.9em; /* Ajustado */
+    font-family: var(--font-form);
+    background-color: var(--color-input-background);
+    color: var(--color-input-text);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--color-placeholder-text);
+}
+
+.form-group-row {
+    display: flex;
+    gap: 20px; /* Espacio entre campos en la misma fila (ej. prep y cocción) */
+}
+.form-group-row .form-group {
+    flex: 1; /* Para que los campos en la fila compartan espacio */
+}
+
+
+.form-group.form-group-description textarea { /* Para el primer textarea de descripción */
+    min-height: 100px; /* Ajustar según necesidad */
+    resize: vertical;
+}
+
+/* Textareas grandes para Ingredientes, Pasos, Notas */
+#publishRecipeForm > .form-group textarea {
+    min-height: 150px; /* Altura mínima para estos textareas */
+    resize: vertical;
+}
+
+
+/* Estilos para el área de subida de archivos grande */
+.image-upload-box-large {
+    border: 2px dashed var(--color-upload-box-border);
+    border-radius: 8px;
+    background-color: var(--color-upload-box-background);
+    padding: 20px;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    min-height: 250px; /* Altura mínima consistente */
+    height: 100%; 
+}
+.form-column-right .form-group .image-upload-box-large {
+    flex-grow: 1; 
+}
+
+.image-upload-box-large:hover {
+    background-color: var(--color-upload-box-background-hover);
+    border-color: var(--color-primary-accent);
+}
+
+.file-input-hidden { 
+    width: 0.1px; height: 0.1px; opacity: 0; overflow: hidden; position: absolute; z-index: -1;
+}
+
+.image-upload-label-large { 
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    width: 100%; height: 100%; cursor: pointer; color: var(--color-upload-box-text);
+}
+.image-upload-label-large i.fa-image { 
+    font-size: 2.5em; /* Icono ligeramente más pequeño */
+    color: var(--color-upload-box-icon);
+    margin-bottom: 10px;
+}
+.image-upload-label-large span { font-weight: 600; margin-bottom: 5px; font-size: 0.95em; }
+.image-upload-label-large small { font-size: 0.8em; }
+
+.image-preview-container-large { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; }
+.image-preview-container-large img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 4px; }
+.image-preview-container-large .upload-prompt { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+
+
+.btn-submit.full-width-submit-button {
+    background-color: var(--color-primary-submit);
+    color: var(--color-white);
+    padding: 15px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%; 
+    transition: background-color 0.3s ease;
+    font-family: var(--font-form);
+    margin-top: 20px; /* Espacio sobre el botón */
+}
+
+.btn-submit.full-width-submit-button:hover {
+    background-color: var(--color-primary-submit-darker);
+}
+
+/* --- Media Queries --- */
+@media (max-width: 992px) {
+    .form-container.publish-recipe-container {
+        max-width: 95%; 
+    }
+    .publish-form-columns-layout {
+        gap: 20px; 
+    }
+}
+
+@media (max-width: 768px) {
+    h2.page-title {
+        font-size: 2.5em;
+    }
+    .form-container.publish-recipe-container {
+        max-width: 90%;
+        padding: 30px 20px;
+    }
+    .publish-form-columns-layout {
+        flex-direction: column; 
+        gap: 25px; 
+    }
+    .form-column-left, .form-column-right {
+        flex: none; 
+        width: 100%;
+    }
+    .form-group-row { /* Para que los campos de prep/cocción y porciones/dificultad se apilen */
+        flex-direction: column;
+        gap: 20px;
+    }
+    .form-column-left .form-group.form-group-description textarea,
+    #publishRecipeForm > .form-group textarea { /* Textareas grandes */
+        min-height: 150px; 
+    }
+    .image-upload-box-large {
+        min-height: 200px; 
+        height: auto; 
+    }
+    .form-page-section {
+        padding: 30px 15px 60px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2.page-title {
+        font-size: 2em;
+    }
+    .form-group label,
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 0.9em;
+    }
+    .btn-submit.full-width-submit-button {
+        font-size: 1em;
+    }
+}
