@@ -1,0 +1,286 @@
+/* --- :root Variables CSS (Deben ser consistentes con styles_navbar.css y styles_footer.css) --- */
+:root {
+    --color-primary: #a93247;
+    --color-primary-darker: #8c2739;
+    --color-dark-text: #3a2e2e;
+    --color-body-text: #333;
+    --color-light-text: #5c5050;
+    --color-meta-text: #777;
+    --color-link-text: var(--color-primary); /* Para enlaces dentro del contenido */
+    
+    --color-background-page: #f4f1ee;
+    --color-background-content: #fff; /* Fondo para la tarjeta principal de la receta */
+    --color-background-ingredients: #f9f9f9; /* Fondo para la sección de ingredientes */
+    
+    --color-border: #d1ccc0;
+    --color-border-light: #e0e0e0; /* Borde más suave para separar secciones */
+    --color-white: #fff;
+
+    --font-primary: 'Playfair Display', serif;
+    --font-secondary: 'Open Sans', sans-serif;
+
+    --box-shadow-content-card: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+/* --- Estilos Base y Layout de Página con Scroll --- */
+html {
+    font-family: var(--font-secondary);
+    background-color: var(--color-background-page);
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body { /* Para páginas con scroll normal */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--color-body-text);
+    background-color: var(--color-background-page);
+}
+
+.container {
+    width: 90%;
+    max-width: 960px; /* Un ancho máximo para el contenido de la receta */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* --- Estilos Específicos para el Contenido de "Detalle de Receta" --- */
+.recipe-detail-page {
+    padding: 40px 0; /* Espacio arriba y abajo de la página de detalle */
+}
+
+.recipe-content {
+    background-color: var(--color-background-content);
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow-content-card);
+}
+
+.recipe-header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--color-border-light);
+    padding-bottom: 20px;
+}
+
+.recipe-main-title {
+    font-family: var(--font-primary);
+    font-size: 2.8em; /* Título grande y destacado */
+    color: var(--color-dark-text);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.recipe-meta-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 20px; /* Espacio vertical y horizontal entre ítems */
+    font-size: 0.9em;
+    color: var(--color-meta-text);
+}
+.recipe-meta-info span {
+    display: flex;
+    align-items: center;
+}
+.recipe-meta-info i {
+    margin-right: 8px;
+    color: var(--color-primary); /* Iconos con color de acento */
+}
+.recipe-author {
+    color: var(--color-link-text);
+    font-weight: 600;
+}
+.recipe-author:hover {
+    text-decoration: underline;
+}
+
+.recipe-image-hero {
+    width: 100%;
+    max-height: 500px; /* Altura máxima para la imagen principal */
+    overflow: hidden;
+    border-radius: 6px;
+    margin-bottom: 30px;
+    background-color: #f0f0f0; /* Placeholder mientras carga */
+}
+.recipe-image-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* La imagen cubre el área sin deformarse */
+}
+
+.recipe-introduction {
+    font-size: 1.05em;
+    color: var(--color-light-text);
+    margin-bottom: 40px;
+    line-height: 1.7;
+}
+.recipe-introduction p:last-child {
+    margin-bottom: 0;
+}
+
+.recipe-body-columns {
+    display: flex;
+    gap: 40px; /* Espacio entre ingredientes e instrucciones */
+    margin-bottom: 40px;
+}
+
+.recipe-ingredients-section {
+    flex: 1; /* Ocupa una parte del espacio */
+    min-width: 280px; /* Ancho mínimo para ingredientes */
+    background-color: var(--color-background-ingredients);
+    padding: 25px;
+    border-radius: 6px;
+    border: 1px solid var(--color-border-light);
+}
+.recipe-ingredients-section h3,
+.recipe-instructions-section h3,
+.recipe-notes h3 {
+    font-family: var(--font-primary);
+    font-size: 1.6em;
+    color: var(--color-dark-text);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 8px;
+    display: flex;
+    align-items: center;
+}
+.recipe-ingredients-section h3 i,
+.recipe-instructions-section h3 i,
+.recipe-notes h3 i {
+    margin-right: 10px;
+    color: var(--color-primary);
+}
+
+.recipe-ingredients-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+.recipe-ingredients-section li {
+    padding: 8px 0;
+    border-bottom: 1px dotted var(--color-border);
+    font-size: 0.95em;
+    display: flex;
+    justify-content: space-between; /* Para alinear cantidad y nombre */
+}
+.recipe-ingredients-section li:last-child {
+    border-bottom: none;
+}
+.ingredient-amount {
+    color: var(--color-meta-text);
+    margin-right: 10px;
+    white-space: nowrap;
+}
+.ingredient-name {
+    flex-grow: 1;
+}
+
+
+.recipe-instructions-section {
+    flex: 2; /* Ocupa más espacio que los ingredientes */
+}
+.recipe-instructions-section ol {
+    list-style: none; /* Usaremos contadores CSS para numeración personalizada */
+    padding-left: 0;
+    counter-reset: step-counter; /* Inicia el contador */
+}
+.recipe-instructions-section li {
+    font-size: 1em;
+    margin-bottom: 20px;
+    padding-left: 45px; /* Espacio para el número del paso */
+    position: relative;
+    line-height: 1.7;
+}
+.recipe-instructions-section li::before {
+    counter-increment: step-counter; /* Incrementa el contador */
+    content: counter(step-counter); /* Muestra el número */
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: var(--font-secondary);
+    font-size: 0.9em;
+}
+
+.recipe-notes {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: var(--color-background-ingredients);
+    border-radius: 6px;
+    border-left: 4px solid var(--color-primary);
+}
+.recipe-notes p {
+    margin-bottom: 0;
+    font-size: 0.95em;
+    color: var(--color-light-text);
+}
+
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+    .recipe-content {
+        padding: 20px;
+    }
+    .recipe-main-title {
+        font-size: 2.2em;
+    }
+    .recipe-meta-info {
+        font-size: 0.8em;
+        gap: 8px 15px;
+    }
+    .recipe-body-columns {
+        flex-direction: column; /* Apila ingredientes e instrucciones */
+        gap: 30px;
+    }
+    .recipe-ingredients-section,
+    .recipe-instructions-section {
+        min-width: auto; /* Resetea el ancho mínimo */
+    }
+    .recipe-ingredients-section h3,
+    .recipe-instructions-section h3,
+    .recipe-notes h3 {
+        font-size: 1.4em;
+    }
+    .recipe-instructions-section li {
+        padding-left: 40px; /* Menos padding para el número del paso */
+    }
+    .recipe-instructions-section li::before {
+        width: 25px;
+        height: 25px;
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .recipe-main-title {
+        font-size: 1.8em;
+    }
+    .recipe-meta-info span {
+        flex-basis: 100%; /* Un ítem de metadato por línea */
+        justify-content: flex-start;
+    }
+    .recipe-image-hero {
+        max-height: 300px;
+    }
+    .recipe-introduction {
+        font-size: 1em;
+    }
+    .recipe-ingredients-section, .recipe-instructions-section, .recipe-notes {
+        padding: 20px;
+    }
+}

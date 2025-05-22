@@ -1,0 +1,291 @@
+/* --- :root Variables CSS (Deben ser consistentes con styles_navbar.css y styles_footer.css si los tienes) --- */
+:root {
+    --color-primary: #a93247;
+    --color-primary-darker: #8c2739;
+    --color-dark-text: #3a2e2e;
+    --color-body-text: #333;
+    --color-light-text: #5c5050;
+    --color-hero-text: #fff; /* Texto sobre el fondo oscuro del hero */
+    --color-meta-text: #777;
+    --color-placeholder-text: #adb5bd;
+    --color-label-text: #495057;
+    
+    --color-background-page: #f4f1ee; /* Fondo general */
+    --color-background-content: #fff; /* Fondo para tarjetas */
+    --color-background-hero-overlay: rgba(0, 0, 0, 0.55); /* Overlay oscuro para el hero, un poco más oscuro */
+    --color-background-button-filter: #fff;
+    --color-background-button-filter-active: var(--color-primary);
+    --color-text-button-filter-active: #fff;
+    --color-border-button-filter: #d1ccc0;
+    --color-border-search: #d1ccc0;
+    --color-border-general: #e0e0e0; /* Para bordes generales como el de filter-section */
+
+    --color-white: #fff;
+
+    --font-primary: 'Playfair Display', serif; /* Para títulos */
+    --font-secondary: 'Open Sans', sans-serif; /* Para texto general */
+
+    --box-shadow-light: 0 4px 15px rgba(0,0,0,0.07);
+    --box-shadow-card-hover: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* --- Estilos Base y Layout de Página con Scroll --- */
+html {
+    font-family: var(--font-secondary);
+    background-color: var(--color-background-page);
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body { /* Para páginas con scroll normal */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--color-body-text);
+    background-color: var(--color-background-page);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* --- Estilos Específicos para el Contenido de "Recetas de la Comunidad" --- */
+.page-content-recetas {
+    /* Espacio para el navbar si es fijo, o simplemente flujo normal */
+}
+
+/* Hero Section Específico para esta página */
+.hero-section-recetas {
+    position: relative;
+    padding: 100px 0; /* Padding vertical ajustado */
+    text-align: center;
+    background-image: url("../assets/img/banner-receta-de-la-comunidad.svg"); /* REEMPLAZA CON TU IMAGEN DE FONDO */
+    background-size: cover;
+    background-position: center center;
+    color: var(--color-hero-text);
+    min-height: 50vh; /* Altura del hero section, puede ser menor si no hay subtítulo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay-recetas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-background-hero-overlay);
+    z-index: 1;
+}
+
+.hero-content-recetas {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title-recetas {
+    font-family: var(--font-primary);
+    font-size: 3.5em; /* Tamaño del título */
+    line-height: 1.1;
+    color: var(--color-hero-text);
+}
+
+/* No hay .hero-subtitle-recetas en la imagen de "Recetas de la comunidad" */
+
+/* Sección de Filtros y Búsqueda (Idéntica a Recetas del Opa) */
+.filter-and-search-section {
+    padding: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    border-bottom: 1px solid var(--color-border-general);
+    margin-bottom: 50px;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.filter-btn {
+    font-family: var(--font-secondary);
+    background-color: var(--color-background-button-filter);
+    color: var(--color-light-text);
+    border: 1px solid var(--color-border-button-filter);
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.filter-btn.active-filter {
+    background-color: var(--color-primary);
+    color: var(--color-text-button-filter-active);
+    border-color: var(--color-primary);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-border-search);
+    border-radius: 20px;
+    padding-left: 15px;
+    background-color: var(--color-background-content);
+    overflow: hidden;
+}
+
+.search-bar input[type="text"] {
+    border: none;
+    outline: none;
+    padding: 10px 0;
+    font-size: 0.9em;
+    background-color: transparent;
+    width: 200px;
+    color: var(--color-body-text);
+}
+.search-bar input[type="text"]::placeholder {
+    color: var(--color-placeholder-text);
+}
+
+.search-bar button {
+    background-color: transparent;
+    border: none;
+    color: var(--color-light-text);
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1em;
+}
+.search-bar button:hover {
+    color: var(--color-primary);
+}
+
+/* Sección de la Cuadrícula de Recetas */
+.recipe-grid-section {
+    padding-bottom: 70px;
+}
+
+.recipe-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.recipe-card {
+    background-color: var(--color-background-content);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow-light);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-card-hover);
+}
+
+.recipe-card-image-wrapper {
+    width: 100%;
+    height: 180px; /* Altura de imagen ligeramente menor para estas tarjetas */
+    overflow: hidden;
+    background-color: #eee;
+}
+.recipe-card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.recipe-card-content {
+    padding: 15px; /* Padding ligeramente menor */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-card-title {
+    font-family: var(--font-secondary); /* Usando fuente secundaria para el título de estas tarjetas */
+    font-size: 1.05em; /* Ligeramente más pequeño */
+    color: var(--color-dark-text);
+    margin-bottom: 0; /* Sin descripción, el título es el único texto */
+    line-height: 1.4; /* Ajustar para que el texto se vea bien */
+    /* Para limitar a 2-3 líneas si el título es largo */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Número de líneas a mostrar */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: calc(1.05em * 1.4 * 2); /* Altura mínima para 2 líneas (font-size * line-height * num-lines) */
+}
+
+/* No hay .recipe-card-description para estas tarjetas según la imagen */
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+    .hero-title-recetas {
+        font-size: 2.5em; /* Título del hero más pequeño en móvil */
+    }
+    .hero-section-recetas {
+        min-height: 30vh; /* Hero más corto en móvil */
+        padding: 60px 0;
+    }
+    .filter-and-search-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .filter-buttons {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .search-bar {
+        width: 100%;
+    }
+    .search-bar input[type="text"] {
+        width: calc(100% - 60px);
+    }
+    .recipe-cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    .recipe-card-title {
+        font-size: 1em;
+        min-height: calc(1em * 1.4 * 2);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title-recetas {
+        font-size: 2em;
+    }
+    .filter-btn {
+        padding: 8px 12px; /* Botones de filtro más pequeños */
+        font-size: 0.8em;
+        flex-grow: 1;
+    }
+    .recipe-cards-container {
+        grid-template-columns: 1fr; /* Una columna */
+    }
+    .recipe-card-image-wrapper {
+        height: 160px;
+    }
+}

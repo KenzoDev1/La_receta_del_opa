@@ -1,0 +1,95 @@
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Receta - Contenido</title>
+    <link rel="stylesheet" href="css/styles_detalle_receta.css">
+    <link rel="stylesheet" href="css/styles_navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!--NAVBAR-->
+    <header class="site-header">
+        <!--Barra de navegacion-->
+        <nav class="main-nav">
+            <!--Logo y eslogan-->
+            <div class="logo">
+                <img src="assets/img/icono.svg" alt="La Receta del Opa Logo Icon"> <h1>La receta del Opa</h1>
+            </div>
+            <!--Conjunto de enlaces-->
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="recetas_del_opa.html">Recetas del opa</a></li>
+                <li><a href="recetas_de_la_comunidad.html">Recetas de la comunidad</a></li>
+                <li><a href="publicar_receta.html">Publicar receta</a></li>
+            </ul>
+            <!--Botones de iniciar sesion y registrarse-->
+            <div class="auth-buttons">
+                <a href="login.html" class="btn btn-primary-action">Iniciar sesión</a>
+                <a href="registro.html" class="btn btn-secondary-action">Registrarse</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="recipe-detail-page">
+        <article class="recipe-content container">
+            <header class="recipe-header">
+                <h1 class="recipe-main-title">Nombre Increíble de la Receta</h1>
+                <div class="recipe-meta-info">
+                    <span><i class="fas fa-user"></i> Por: <a href="#" class="recipe-author">El Opa</a></span>
+                    <span><i class="fas fa-clock"></i> Prep: 20 min</span>
+                    <span><i class="fas fa-fire"></i> Cocción: 45 min</span>
+                    <span><i class="fas fa-users"></i> Porciones: 4</span>
+                    <span><i class="fas fa-utensils"></i> Dificultad: Media</span>
+                </div>
+            </header>
+
+            <div class="recipe-image-hero">
+                <img src="placeholder_detalle_receta_grande.jpg" alt="Plato principal de la receta">
+            </div>
+
+            <section class="recipe-introduction">
+                <p>Esta es una descripción breve y apetitosa de la receta. Habla un poco sobre su origen, por qué es especial, o para qué ocasión es perfecta. Queremos que el usuario se sienta inspirado a cocinarla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </section>
+
+            <div class="recipe-body-columns">
+                <aside class="recipe-ingredients-section">
+                    <h3><i class="fas fa-shopping-basket"></i> Ingredientes</h3>
+                    <ul>
+                        <li><span class="ingredient-amount">2 unidades</span> <span class="ingredient-name">Pechugas de pollo grandes</span></li>
+                        <li><span class="ingredient-amount">1 unidad</span> <span class="ingredient-name">Cebolla grande, picada</span></li>
+                        <li><span class="ingredient-amount">2 dientes</span> <span class="ingredient-name">Ajo, picados</span></li>
+                        <li><span class="ingredient-amount">400g</span> <span class="ingredient-name">Tomates triturados (lata)</span></li>
+                        <li><span class="ingredient-amount">200ml</span> <span class="ingredient-name">Caldo de pollo</span></li>
+                        <li><span class="ingredient-amount">1 cdta</span> <span class="ingredient-name">Orégano seco</span></li>
+                        <li><span class="ingredient-amount">1/2 cdta</span> <span class="ingredient-name">Pimentón dulce</span></li>
+                        <li><span class="ingredient-amount"></span> <span class="ingredient-name">Aceite de oliva</span></li>
+                        <li><span class="ingredient-amount"></span> <span class="ingredient-name">Sal y pimienta al gusto</span></li>
+                        <li><span class="ingredient-amount">Opcional:</span> <span class="ingredient-name">Perejil fresco picado para decorar</span></li>
+                    </ul>
+                </aside>
+
+                <section class="recipe-instructions-section">
+                    <h3><i class="fas fa-list-ol"></i> Pasos a Seguir</h3>
+                    <ol>
+                        <li>En una sartén grande, calienta un poco de aceite de oliva a fuego medio. Sazona las pechugas de pollo con sal, pimienta, orégano y pimentón. Dora el pollo por ambos lados hasta que esté bien sellado. Retira y reserva.</li>
+                        <li>En la misma sartén, añade un poco más de aceite si es necesario y sofríe la cebolla hasta que esté transparente, unos 5-7 minutos. Agrega el ajo picado y cocina por 1 minuto más hasta que esté fragante.</li>
+                        <li>Vierte los tomates triturados y el caldo de pollo en la sartén. Lleva a ebullición suave, raspando el fondo para levantar los sabores.</li>
+                        <li>Regresa las pechugas de pollo a la sartén. Reduce el fuego, tapa y cocina a fuego lento durante 20-25 minutos, o hasta que el pollo esté completamente cocido y tierno.</li>
+                        <li>Verifica la sazón y ajusta si es necesario. Sirve caliente, decorado con perejil fresco si lo deseas. Acompaña con arroz blanco o tu guarnición favorita.</li>
+                    </ol>
+                </section>
+            </div>
+
+            <section class="recipe-notes">
+                <h3><i class="fas fa-sticky-note"></i> Notas Adicionales</h3>
+                <p>Puedes añadir champiñones junto con la cebolla para un sabor extra. Si prefieres una salsa más espesa, puedes cocinarla destapada los últimos 5-10 minutos.</p>
+            </section>
+
+        </article>
+    </main>
+
+</body>
+</html>

@@ -3,32 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión - La Receta del Opa</title>
+    <title>Iniciar Sesión - Contenido</title>
     <link rel="stylesheet" href="css/styles_iniciar_sesion.css">
+        <link rel="stylesheet" href="css/styles_navbar.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="fixed-page">
+    <!--NAVBAR-->
     <header class="site-header">
-        <nav class="main-nav container">
+        <!--Barra de navegacion-->
+        <nav class="main-nav">
+            <!--Logo y eslogan-->
             <div class="logo">
-                <img src="logo_olla.png" alt="La Receta del Opa Logo Icon">
-                <h1>La receta del Opa</h1>
+                <img src="assets/img/icono.svg" alt="La Receta del Opa Logo Icon"> <h1>La receta del Opa</h1>
             </div>
+            <!--Conjunto de enlaces-->
             <ul class="nav-links">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Recetas del opa</a></li>
-                <li><a href="#">Recetas de la comunidad</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="recetas_del_opa.html">Recetas del opa</a></li>
+                <li><a href="recetas_de_la_comunidad.html">Recetas de la comunidad</a></li>
+                <li><a href="publicar_receta.html">Publicar receta</a></li>
             </ul>
+            <!--Botones de iniciar sesion y registrarse-->
             <div class="auth-buttons">
-                <a href="#" class="btn btn-login active">Iniciar sesión</a>
-                <a href="#" class="btn btn-register">Registrarse</a>
+                <a href="login.html" class="btn btn-primary-action">Iniciar sesión</a>
+                <a href="registro.html" class="btn btn-secondary-action">Registrarse</a>
             </div>
         </nav>
     </header>
 
-    <main class="login-section">
+    <main class="form-page-section">
         <h2 class="page-title">Iniciar Sesión</h2>
-        <div class="login-container">
+        <div class="form-container">
             <form>
                 <div class="form-group">
                     <label for="username">Nombre de usuario/correo electrónico</label>
@@ -39,11 +45,12 @@
                     <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña">
                 </div>
                 <div class="form-options">
-                    <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                    <a href="restaurar_cuenta.html" class="forgot-password">¿Olvidaste tu contraseña?</a>
                 </div>
                 <button type="submit" class="btn-submit">Ingresar</button>
             </form>
         </div>
+
     </main>
 
 </body>

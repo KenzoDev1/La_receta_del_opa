@@ -1,120 +1,672 @@
+/* --- :root Variables CSS --- */
+:root {
+    --color-primary: #a93247;
+    --color-primary-darker: #8c2739;
+    --color-dark-text: #3a2e2e;
+    --color-body-text: #333;
+    --color-light-text: #5c5050;
+    --color-meta-text: #777;
+    --color-placeholder-text: #adb5bd;
+    --color-label-text: #495057;
+    --color-background-page: #f4f1ee;
+    --color-background-content: #fff;
+    --color-background-input: #fdfdfd;
+    --color-background-hero: #e0e0e0; /* Placeholder para el fondo del hero */
+    --color-border: #d1ccc0;
+    --color-border-light: #e9ecef;
+    --color-white: #fff;
+    --color-black: #000;
+
+    --color-footer-bg: #343a40;
+    --color-footer-text: #adb5bd;
+    --color-footer-title: var(--color-white);
+    --color-footer-link-hover: var(--color-white);
+    --color-copyright-bg: #212529;
+    --color-copyright-text: #6c757d;
+
+    --font-primary: 'Playfair Display', serif;
+    --font-secondary: 'Open Sans', sans-serif;
+
+    --box-shadow-light: 0 4px 15px rgba(0,0,0,0.07);
+    --box-shadow-medium: 0 6px 30px rgba(0,0,0,0.09);
+}
+
+/* --- Reseteo Básico y Estilos Globales --- */
+html {
+    font-family: var(--font-secondary);
+    background-color: var(--color-background-page);
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
 body {
     margin: 0;
+    padding: 0;
+    color: var(--color-body-text);
+    line-height: 1.6;
+    background-color: var(--color-background-page);
 }
 
-.contact-info-bar {
+/* Estilos para páginas fijas (deberán tener la clase .fixed-page en el body) */
+body.fixed-page {
+    height: 100vh;
+    overflow: hidden;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #474747;
-    color: #f9f9f7;
-    padding: 10px 100px;
-    font-family: DmSans, sans-serif;
+    flex-direction: column;
 }
-
-.contact-info {
-    display: flex;
-    gap: 15px;
+body.fixed-page .site-header {
+    flex-shrink: 0;
 }
-
-.contact-info .item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.contact-info img {
-    width: 20px;
-    height: 20px;
-}
-
-.contact-info span {
-    font-size: 14px;
-}
-
-.social-media-buttons {
-    display: flex;
-    gap: 8px;
-}
-.botonRedSocial {
-    background: #f9f9f720;
-    border-radius: 50%;
-    border: none;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background 0.3s ease;    
-}
-
-.botonRedSocial:hover {
-    background: #666;
-}
-
-.botonRedSocial img {
-    width: 18px;
-    height: 18px;
-}
-
-.banner-principal {
-    background-image: url("../assets/img/banner-principal.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px
-}
-
-.contenido-banner {
+body.fixed-page .form-page-section {
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-    color: #2c2f24;
+    padding: 30px 20px 20px 20px;
+    width: 100%;
+    overflow: hidden;
+}
+body.fixed-page h1, body.fixed-page h2.page-title {
+    flex-shrink: 0;
+}
+body.fixed-page .form-container {
+    flex-shrink: 0;
 }
 
-.contenido-banner h1 {
-    width: 800px;
-    height: 250px;
-    padding: 20px 20px;
-    font-size: 100px;
+
+h1, h2, h3, h4, h5, h6, .page-title {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    color: var(--color-dark-text);
+    margin-top: 0;
+    margin-bottom: 0.75em;
 }
 
-.contenido-banner span  {
-    font-size: 23px;
+h2.page-title { /* Títulos de página de formulario o secciones */
+    font-size: 3.2em;
+    text-align: center;
+    margin-bottom: 35px;
 }
-.botones-banner {
+body.fixed-page h2.page-title {
+    margin-top: 10px; /* Ajuste para páginas fijas */
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* --- Header --- */
+.site-header {
+    background-color: var(--color-background-page);
+    position: relative;
+    z-index: 1000;
+    box-shadow: var(--box-shadow-light);
+}
+
+.top-bar {
+    background-color: var(--color-background-page);
+    padding: 8px 0;
+    font-size: 0.85em;
+    color: var(--color-light-text);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.top-bar-content {
     display: flex;
-    gap: 20px;
-    font-family: DmSans, sans-serif;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.boton-crear-recetas {
-    background-color: #AD343E;
-    color: #f9f9f7;
-    padding: 20px 30px;
+.contact-info span {
+    margin-right: 20px;
+}
+.contact-info i {
+    margin-right: 6px;
+    color: var(--color-primary);
+}
+
+.social-media-header a {
+    margin-left: 15px;
+    color: var(--color-meta-text);
+    font-size: 1rem;
+}
+.social-media-header a:hover {
+    color: var(--color-primary);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo img {
+    height: 45px;
+    margin-right: 12px;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 1.9em;
+    color: var(--color-dark-text);
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: var(--color-light-text);
+    font-weight: 400;
+    font-size: 0.95em;
+    padding: 5px 0;
+    white-space: nowrap;
+}
+
+.nav-links a:hover,
+.nav-links a.active-main-link {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+/* En tu styles_index.css o style.css general */
+
+/* ... (otros estilos que ya tienes) ... */
+
+.auth-buttons .btn {
+    /* AJUSTADO: Padding vertical reducido */
+    padding: 6px 20px; /* Antes podría haber sido 9px 22px o similar */
+    border: 1.5px solid var(--color-border, #d1ccc0); /* Usando variable si está definida, sino fallback */
+    border-radius: 25px;
+    margin-left: 10px;
+    font-size: 0.9em;
+    font-weight: 600;
+    white-space: nowrap; /* Asegura que el texto no se parta en dos líneas */
+    background-color: transparent;
+    color: var(--color-dark-text, #3a2e2e);
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+    /* NUEVO/AJUSTADO: Mejor control de alineación interna y altura */
+    display: inline-flex; /* Permite usar align-items */
+    align-items: center;  /* Centra el texto verticalmente dentro del botón */
+    justify-content: center; /* Centra el texto horizontalmente (aunque text-align: center ya lo hacía) */
+    line-height: 1.3; /* Ajusta la altura de línea para que sea más compacta */
+    /* Quita cualquier 'height' o 'min-height' fijo a menos que sea calculado para alinear perfectamente */
+    /* height: auto; */ /* Es el valor por defecto */
+}
+
+/* Estilos para el estado activo y hover se mantienen como estaban */
+.auth-buttons .btn.active {
+    background-color: var(--color-dark-text, #3a2e2e);
+    color: var(--color-white, #fff);
+    border-color: var(--color-dark-text, #3a2e2e);
+}
+
+.auth-buttons .btn:not(.active):hover {
+    background-color: var(--color-primary, #a93247);
+    color: var(--color-white, #fff);
+    border-color: var(--color-primary, #a93247);
+}
+
+/* ... (asegúrate que .main-nav tenga align-items: center) ... */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Esto es CLAVE para alinear verticalmente todos los elementos del nav */
+    /* ... el resto de tus estilos de .main-nav ... */
+    width: 90%;
+    max-width: 1600px; /* O el valor que estés usando */
+    margin: 0 auto;
+    padding: 0 20px; /* O el padding que estés usando */
+    padding-bottom: 10px;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    position: relative;
+    padding: 80px 0;
+    text-align: center;
+    background-color: var(--color-background-hero);
+    background-image: url('placeholder_hero_background.jpg'); /* REEMPLAZA CON TU IMAGEN */
+    background-size: cover;
+    background-position: center center;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-dark-text);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("../assets/img/banner-principal.svg");
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 4.5em;
+    margin-bottom: 0.4em;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.2em;
+    margin-bottom: 1.8em;
+    color: var(--color-light-text);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons .btn {
+    padding: 12px 30px;
+    font-size: 1em;
+    font-weight: 600;
+    border-radius: 25px;
+    margin: 0.5em 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 2px solid transparent;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-hero-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-color: var(--color-primary);
+}
+.btn-hero-primary:hover {
+    background-color: var(--color-primary-darker);
+    border-color: var(--color-primary-darker);
+}
+
+.btn-hero-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+.btn-hero-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* --- News Section --- */
+.news-section {
+    padding: 70px 0;
+    background-color: var(--color-background-page);
+}
+
+.section-title { /* Título para secciones como "Noticias del Opa" */
+    text-align: center;
+    font-size: 2.8em;
+    margin-bottom: 50px;
+    color: var(--color-dark-text);
+}
+
+.news-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.news-card {
+    background-color: var(--color-background-content);
+    border-radius: 8px;
+    box-shadow: var(--box-shadow-light);
+    overflow: hidden;
+    flex: 1 1 300px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-medium);
+}
+
+.news-card-image-wrapper {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+.news-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.news-card-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.news-card-title {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    color: var(--color-dark-text);
+}
+
+.news-card-meta {
+    font-size: 0.8em;
+    color: var(--color-meta-text);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.news-card-description {
+    font-size: 0.95em;
+    color: var(--color-body-text);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* --- Footer --- */
+.site-footer-bottom {
+    background-color: var(--color-footer-bg);
+    color: var(--color-footer-text);
+    padding-top: 60px;
+}
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-bottom: 40px;
+}
+.footer-logo-section {
+    flex-basis: 28%;
+    min-width: 250px;
+}
+.footer-logo {
+    height: 50px;
+    margin-bottom: 15px;
+}
+.footer-logo-section h2 {
+    color: var(--color-footer-title);
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.footer-social a {
+    margin-right: 12px;
+    color: var(--color-footer-text);
+    font-size: 1.3em;
+}
+.footer-social a:hover {
+    color: var(--color-primary);
+}
+.footer-links {
+    flex-basis: 20%;
+    min-width: 160px;
+}
+.footer-links h4 {
+    color: var(--color-footer-title);
+    margin-bottom: 20px;
+    font-size: 1.15em;
+}
+.footer-links ul li {
+    margin-bottom: 12px;
+}
+.footer-links a {
+    color: var(--color-footer-text);
+}
+.footer-links a:hover {
+    color: var(--color-footer-link-hover);
+    text-decoration: underline;
+}
+
+.instagram-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+}
+.instagram-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+.instagram-gallery img:hover {
+    border-color: var(--color-primary);
+}
+
+.copyright {
+    background-color: var(--color-copyright-bg);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.85em;
+    color: var(--color-copyright-text);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* --- Estilos de Formularios (para login, registro, etc.) --- */
+/* Estos son estilos base para elementos de formulario que pueden ser usados
+   en las páginas de formulario específicas (login.html, registro.html, etc.) */
+.form-page-section { /* Contenedor principal para páginas de formulario */
+    /* Si es una página fija, body.fixed-page .form-page-section aplicará flex-grow */
+    /* Si es una página scrolleable (como publicar_receta), esto da padding */
+    padding: 40px 20px 80px 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container {
+    background-color: var(--color-background-content);
+    padding: 45px 50px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow-medium);
+    width: 100%;
+    max-width: 480px; /* Default para formularios de una columna */
+    text-align: left;
+    /* margin: 50px auto; /* Solo si la página es scrolleable y no fixed-page */
+}
+body:not(.fixed-page) .form-container { /* Centrar en páginas scrolleables */
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.form-container.wide-form { max-width: 700px; } /* Para registro, restaurar_cuenta */
+.form-container.extra-wide-form { max-width: 580px; } /* Para publicar_receta */
+
+
+.form-instructional-text {
+    font-size: 0.9em;
+    color: var(--color-light-text);
+    margin-bottom: 25px;
+    line-height: 1.6;
+    text-align: left;
+}
+.form-instructional-text.full-width-text {
+    font-size: 0.95em;
+    color: #454545; /* Considerar variable */
+    font-weight: bold;
+}
+
+.form-group { margin-bottom: 22px; }
+.form-group label { display: block; margin-bottom: 9px; font-weight: 600; color: var(--color-label-text); font-size: 0.95em; }
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group textarea {
+    width: 100%;
+    padding: 14px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 0.95em;
+    font-family: var(--font-secondary);
+    background-color: var(--color-background-input);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--color-placeholder-text); }
+
+.form-group textarea { min-height: 120px; resize: vertical; }
+
+/* Layouts específicos de formulario */
+.form-row { display: flex; gap: 20px; margin-bottom: 25px; }
+.form-row .form-group { flex: 1; margin-bottom: 0; }
+
+.restore-form-layout-container { display: flex; flex-direction: column; gap: 25px; }
+.restore-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 25px; width: 100%; }
+.restore-form-grid .form-group { margin-bottom: 0; }
+.grid-item-resend-link { display: flex; align-items: center; justify-content: flex-start; }
+.resend-code-link { display: inline-block; color: var(--color-primary); font-weight: 600; font-size: 0.9em; text-decoration: underline; cursor: pointer; }
+.resend-code-link:hover { color: var(--color-primary-darker); }
+
+.file-upload-area { position: relative; width: 100px; height: 50px; }
+.file-input-hidden { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; z-index: 10; }
+.file-upload-label { display: flex; justify-content: center; align-items: center; width: 100%; height: 100%; border: 1.5px dashed var(--color-border-dashed); border-radius: 4px; background-color: var(--color-background-upload-area); cursor: pointer; transition: background-color 0.3s ease, border-color 0.3s ease; }
+.file-upload-label:hover { background-color: #f0f0f0; border-color: var(--color-border-dashed-hover); }
+.file-upload-label .plus-icon { font-size: 2em; color: #b0b0b0; line-height: 1; }
+
+
+.form-options { text-align: left; margin-bottom: 30px; margin-top: -10px; }
+.forgot-password { color: var(--color-primary); font-size: 0.9em; font-weight: 600; }
+.forgot-password:hover { text-decoration: underline; }
+
+.btn-submit {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 15px 20px;
     border: none;
-    border-radius: 100px;
+    border-radius: 30px;
+    font-size: 1.05em;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.3s ease;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    font-family: var(--font-secondary);
+    margin-top: 10px;
 }
-.boton-crear-recetas:hover {
-    background-color: #8b2a31;
+.btn-submit:hover { background-color: var(--color-primary-darker); }
+
+.btn-submit.full-width-submit-button { font-size: 1.1em; margin-top: 0; }
+
+
+/* --- Media Queries --- */
+@media (max-width: 992px) {
+    .hero-title { font-size: 2.8em; }
+    .hero-subtitle { font-size: 1.1em; }
+    .news-card { max-width: calc(50% - 15px); }
 }
 
-.boton-ver-recetas {
-    padding: 20px 30px;
-    border-radius: 100px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-.boton-ver-recetas:hover {
-    background-color: #d0d0d0;
+@media (max-width: 880px) {
+    .main-nav { flex-direction: column; align-items: center; width: 95%; gap: 15px; }
+    .nav-links { margin-left: 0; margin-right: 0; order: 2; flex-wrap: wrap; justify-content: center; margin-bottom: 10px; }
+    .nav-links li { margin: 5px 10px; }
+    .auth-buttons, .header-actions { order: 3; margin-top:10px; flex-direction: column; gap: 10px; }
+    .auth-buttons .btn, .header-actions .btn { width: auto; min-width: 200px; margin-left:0; }
+
+
 }
 
+@media (max-width: 768px) {
+    .top-bar-content { flex-direction: column; gap: 10px; }
+    .social-media-header { margin-top: 5px; }
+
+    h2.page-title { font-size: 2.5em; margin-bottom: 25px; }
+    body.fixed-page h2.page-title { margin-top: 5px; }
+
+
+    .form-container,
+    .form-container.wide-form,
+    .form-container.extra-wide-form,
+    .restore-form-layout-container {
+        max-width: 90%;
+        padding: 30px 20px;
+    }
+    body:not(.fixed-page) .form-container { margin-top:30px; margin-bottom:30px; }
+
+
+    .form-page-section { padding-top: 20px; padding-bottom: 40px; }
+    body.fixed-page .form-page-section { padding-top: 20px; padding-bottom: 20px; }
+
+
+    .form-row { flex-direction: column; gap: 0; margin-bottom: 0; }
+    .form-row .form-group { margin-bottom: 22px; }
+    .form-row:last-of-type .form-group:last-child { margin-bottom: 25px; }
+
+    .restore-form-grid { grid-template-columns: 1fr; gap: 20px 0; }
+    .grid-item-resend-link { justify-content: center; margin-top: 5px; }
+    .btn-submit.full-width-submit-button { font-size: 1.05em; padding: 14px 18px; }
+
+    .hero-section { padding: 60px 0; min-height: auto; }
+    .hero-title { font-size: 2.2em; }
+    .hero-subtitle { font-size: 1em; }
+    .hero-buttons { display: flex; flex-direction: column; align-items: center; }
+    .hero-buttons .btn { width: 80%; max-width: 300px; margin-bottom: 10px; }
+    .hero-buttons .btn:last-child { margin-bottom: 0; }
+
+    .news-card { max-width: 100%; flex-basis: 100%;}
+
+    .footer-content { flex-direction: column; align-items: center; text-align: center; }
+    .footer-logo-section, .footer-links, .footer-instagram { flex-basis: 100%; min-width: auto; margin-bottom: 30px; }
+    .instagram-gallery { max-width: 320px; margin: 0 auto; }
+
+    .file-upload-area, .file-upload-label { width: 80px; height: 80px; }
+    .file-upload-label .plus-icon { font-size: 2.5em; }
+}
+
+@media (max-width: 480px) {
+    .hero-title { font-size: 1.8em; }
+    .hero-subtitle { font-size: 0.9em; }
+    .section-title { font-size: 2.2em; }
+    .news-card-title { font-size: 1.2em; }
+    .form-page-section h2.page-title,
+    body.fixed-page h2.page-title { font-size: 2em; }
+}

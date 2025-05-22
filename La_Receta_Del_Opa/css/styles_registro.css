@@ -1,253 +1,205 @@
-/* Reseteo básico y fuentes */
-body {
-  margin: 0;
-  font-family: 'Open Sans', sans-serif;
-  background-color: #f4f1ee;
-  color: #333;
-  line-height: 1.6;
+/* --- :root Variables CSS (Deben ser consistentes con styles_navbar.css) --- */
+:root {
+    --color-primary-accent: #a93247;
+    --color-primary-submit: #a93247; /* Para el botón "Registrar" */
+    --color-primary-submit-darker: #8c2739;
+    
+    /* Variables del navbar que podrían ser referenciadas o para consistencia general */
+    --color-button-primary-bg: #3a2e2e; /* Color oscuro de botón activo en navbar */
+    --color-button-primary-text: #fff;
+    --color-button-secondary-bg: transparent;
+    --color-button-secondary-text: var(--color-button-primary-bg);
+    --color-button-secondary-border: #d1ccc0; 
+    
+    --color-logo-text: #3a2e2e;
+    --color-page-title-text: #3a2e2e;
+    --color-nav-link-text: #5c5050;
+    --color-label-text: #495057;
+    --color-input-text: #333;
+    --color-placeholder-text: #adb5bd;
+    
+    --color-header-background: #f4f1ee;
+    --color-page-background: #f4f1ee;
+    --color-form-background: #fff;
+    --color-input-background: #fdfdfd;
+    
+    --color-border: #d1ccc0;
+    --color-white: #fff;
+
+    --font-logo: 'Playfair Display', serif;
+    --font-page-title: 'Playfair Display', serif;
+    --font-nav: 'Open Sans', sans-serif;
+    --font-form: 'Open Sans', sans-serif;
+
+    --box-shadow-form: 0 6px 30px rgba(0,0,0,0.09); /* Sombra como en styles_registro.css original */
 }
 
-h1, h2.page-title {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
+/* --- Estilos Base y Layout de Página Fija --- */
+html {
+    font-family: var(--font-form);
+    background-color: var(--color-page-background);
+    box-sizing: border-box;
+    height: 100%; 
+    overflow: hidden; 
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+*, *::before, *::after {
+    box-sizing: inherit;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+body.fixed-page {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--color-input-text);
+    background-color: var(--color-page-background);
 }
 
-/* Contenedor del Header para ocupar el ancho completo y centrar el nav */
-.site-header {
-  background-color: #f4f1ee;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  width: 100%;
-  box-sizing: border-box;
+body.fixed-page .site-header {
+    flex-shrink: 0;
 }
 
-/* Barra de navegación principal */
-.main-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 90%;
-  max-width: 1600px;
-  margin: 0 auto;
-  padding: 0 20px;
-  box-sizing: border-box;
+body.fixed-page main.form-page-section {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+    overflow: hidden;
 }
 
-.logo {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
+/* --- Estilos Específicos para el Contenido de la Página de Registro --- */
+h2.page-title {
+    font-family: var(--font-page-title);
+    font-size: 3.2em;
+    text-align: center;
+    margin-bottom: 35px; /* Espacio como en styles_registro.css original */
+    color: var(--color-page-title-text);
+    flex-shrink: 0;
+}
+body.fixed-page h2.page-title {
+     margin-top: 0px; /* Margen superior como en styles_registro.css original */
+     margin-bottom: 35px; /* Consistente */
 }
 
-.logo img {
-  height: 45px;
-  margin-right: 12px;
+.form-container.wide-form { /* Usamos wide-form para el layout de 2 columnas */
+    background-color: var(--color-form-background);
+    padding: 40px; /* Padding como en styles_registro.css original */
+    border-radius: 8px; /* Redondez como en styles_registro.css original */
+    box-shadow: var(--box-shadow-form);
+    width: 100%;
+    max-width: 700px; /* Ancho para dos columnas como en styles_registro.css original */
+    text-align: left;
+    flex-shrink: 0;
+}
+body:not(.fixed-page) .form-container.wide-form { /* Si la página fuera scrolleable */
+    margin-top: 30px; 
+    margin-bottom: 30px;
 }
 
-.logo h1 {
-  margin: 0;
-  font-size: 1.9em;
-  color: #3a2e2e;
-  white-space: nowrap;
+/* Estilo para las filas del formulario de registro */
+.form-row {
+    display: flex;
+    gap: 20px; /* Espacio entre campos en la misma fila */
+    margin-bottom: 25px; /* Espacio entre filas de campos */
 }
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  margin-right: 30px;
-  flex-shrink: 1;
-  overflow: hidden;
-}
-
-.nav-links li {
-  margin-left: 35px;
-}
-
-.nav-links a {
-  color: #5c5050;
-  font-weight: 400;
-  font-size: 0.95em;
-  padding: 5px 0;
-  transition: color 0.3s ease;
-  white-space: nowrap;
-}
-
-.nav-links a:hover {
-  color: #a93247;
-}
-
-/* Estilos para los botones de autenticación en el header */
-.auth-buttons {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.auth-buttons .btn {
-  padding: 9px 22px;
-  border: 1.5px solid #d1ccc0; /* Borde por defecto para estado inactivo */
-  border-radius: 25px;
-  margin-left: 10px;
-  font-size: 0.9em;
-  font-weight: 600;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-  white-space: nowrap;
-  background-color: transparent; /* Fondo por defecto para estado inactivo */
-  color: #3a2e2e; /* Color de texto por defecto para estado inactivo */
-  cursor: pointer;
-}
-
-/* Estilo para el botón ACTIVO (sea login o register) */
-.auth-buttons .btn.active {
-  background-color: #3a2e2e; /* Fondo oscuro para activo */
-  color: #fff; /* Texto blanco para activo */
-  border-color: #3a2e2e; /* Borde coincide con el fondo para activo */
-}
-
-/* Hover para botones INACTIVOS */
-.auth-buttons .btn:not(.active):hover {
-  background-color: #a93247; /* Color principal del tema al hacer hover */
-  color: #fff;
-  border-color: #a93247;
+.form-row:last-of-type { /* Para la última fila antes del botón, si es necesario ajustar */
+    /* margin-bottom: 20px; */ /* Opcional */
 }
 
 
-/* Sección del Formulario (Login o Registro) */
-.form-page-section { /* Renombrada la clase contenedora de la página de formulario */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px 80px 20px;
-  background-color: #f4f1ee;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.page-title {
-  font-size: 3.2em;
-  color: #3a2e2e;
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.form-container { /* Clase común para el contenedor de login y registro */
-  background-color: #fff;
-  padding: 45px 50px;
-  border-radius: 6px;
-  box-shadow: 0 4px 25px rgba(0,0,0,0.08);
-  width: 100%;
-  max-width: 800px;
-  text-align: left;
-  box-sizing: border-box;
-}
-
-.form-group {
-  margin-bottom: 25px;
+.form-row .form-group {
+    flex: 1; /* Cada grupo de formulario en la fila ocupa el mismo espacio */
+    margin-bottom: 0; /* El margen inferior ahora lo maneja .form-row */
 }
 
 .form-group label {
-  display: block;
-  margin-bottom: 9px;
-  font-weight: 600;
-  color: #495057;
-  font-size: 0.95em;
+    display: block;
+    margin-bottom: 9px;
+    font-weight: 600;
+    color: var(--color-label-text);
+    font-size: 0.95em;
+    font-family: var(--font-form);
 }
 
 .form-group input[type="text"],
-.form-group input[type="email"], /* Añadido para el campo de email */
+.form-group input[type="email"],
 .form-group input[type="password"] {
-  width: 100%;
-  padding: 15px 12px;
-  border: 1px solid #d1ccc0;
-  border-radius: 4px;
-  font-size: 0.95em;
-  font-family: 'Open Sans', sans-serif;
-  background-color: #fdfdfd;
-  box-sizing: border-box;
+    width: 100%;
+    padding: 14px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    font-size: 0.95em;
+    font-family: var(--font-form);
+    background-color: var(--color-input-background);
+    color: var(--color-input-text);
 }
-.form-group input::placeholder { /* Aplicar a todos los inputs */
-  color: #adb5bd;
+.form-group input::placeholder {
+    color: var(--color-placeholder-text);
 }
 
-/* Removido .form-options y .forgot-password ya que no están en la página de registro */
-/* Si la página de login aún los necesita, mantenlos o sepáralos si es necesario */
-
-.btn-submit {
-  background-color: #a93247;
-  color: #fff;
-  padding: 15px 20px;
-  border: none;
-  border-radius: 30px;
-  font-size: 1.05em;
-  font-weight: 600;
-  cursor: pointer;
-  width: 100%;
-  transition: background-color 0.3s ease;
-  font-family: 'Open Sans', sans-serif;
-  margin-top: 10px; /* Espacio arriba del botón de submit si es el último elemento */
-  box-sizing: border-box;
+.btn-submit { /* Botón "Registrar" */
+    background-color: var(--color-primary-submit);
+    color: var(--color-white);
+    padding: 15px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.05em;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%; /* Ocupa todo el ancho del .form-container */
+    transition: background-color 0.3s ease;
+    font-family: var(--font-form);
+    margin-top: 15px; /* Espacio sobre el botón, ajustado de styles_registro.css original */
 }
 
 .btn-submit:hover {
-  background-color: #8c2739;
+    background-color: var(--color-primary-submit-darker);
 }
 
-/* Media Query para responsividad (ejemplo básico) */
+/* --- Media Queries (Adaptadas para esta página de registro) --- */
 @media (max-width: 768px) {
-  .main-nav {
-      flex-direction: column;
-      align-items: center;
-      width: 95%;
-  }
+    body.fixed-page main.form-page-section {
+        justify-content: flex-start;
+        padding-top: 8vh;
+    }
+    h2.page-title {
+        font-size: 2.5em;
+        margin-bottom: 25px;
+    }
+    .form-container.wide-form {
+        max-width: 90%;
+        padding: 30px 20px;
+    }
+    .form-row {
+        flex-direction: column; /* Apila los campos verticalmente */
+        gap: 0; /* Sin gap horizontal */
+        margin-bottom: 0; /* El .form-group individual manejará el margen */
+    }
+    .form-row .form-group {
+        margin-bottom: 22px; /* Margen entre campos apilados */
+    }
+     /* Ajuste para el último grupo de la última fila antes del botón */
+    form > .form-row:last-of-type > .form-group:last-child {
+        margin-bottom: 25px;
+    }
+}
 
-  .logo {
-      margin-bottom: 15px;
-  }
-
-  .nav-links {
-      margin-left: 0;
-      margin-right: 0;
-      margin-bottom: 15px;
-      flex-wrap: wrap;
-      justify-content: center;
-  }
-
-  .nav-links li {
-      margin: 5px 10px;
-  }
-
-  .auth-buttons {
-      flex-direction: column; /* Apila los botones en pantallas pequeñas */
-      width: 100%;
-  }
-   .auth-buttons .btn {
-      margin-left: 0; /* Sin margen izquierdo cuando están apilados */
-      margin-bottom: 10px; /* Espacio entre botones apilados */
-      width: 80%; /* Opcional: hacer que los botones ocupen más ancho */
-      text-align: center;
-  }
-  .auth-buttons .btn:last-child {
-      margin-bottom: 0;
-  }
-
-  .page-title {
-      font-size: 2.5em;
-  }
-
-  .form-container { /* Ajusta el contenedor del formulario en móviles */
-      max-width: 90%;
-      padding: 30px 20px;
-  }
+@media (max-width: 480px) {
+    h2.page-title {
+        font-size: 2em;
+    }
+    .form-group label,
+    .form-group input {
+        font-size: 0.9em;
+    }
+    .btn-submit {
+        font-size: 1em;
+    }
 }
