@@ -32,36 +32,51 @@
         </nav>
     </header>
 
-    
     <main class="form-page-section">
         <h2 class="page-title">Registro</h2>
         <div class="form-container wide-form">
-            <form>
+            <!-- *** CAMBIO CLAVE 1: Añadir id="registroForm" al formulario *** -->
+            <form id="registroForm">
                 <div class="form-row">
+                    <!-- El campo de "Usuario" no lo estamos usando directamente con Supabase Auth por ahora.
+                         Si quieres guardarlo, necesitarías una tabla de perfiles y lógica adicional.
+                         Por ahora, nos centraremos en el correo y la contraseña.
+                         Puedes dejarlo si lo necesitas para otras validaciones o para un perfil.
+                    -->
                     <div class="form-group">
-                        <label for="reg-username">Usuario</label>
-                        <input type="text" id="reg-username" name="username" placeholder="Ingresa un nombre de usuario">
+                        <label for="nombre">Usuario</label>
+                        <!-- *** CAMBIO CLAVE 2: Ajustar ID para el nombre (opcional, si lo usas) *** -->
+                        <input type="text" id="nombre" name="username" placeholder="Ingresa un nombre de usuario">
                     </div>
                     <div class="form-group">
-                        <label for="reg-password">Contraseña</label>
-                        <input type="password" id="reg-password" name="password" placeholder="Ingresa tu contraseña">
+                        <label for="contrasena">Contraseña</label>
+                        <!-- *** CAMBIO CLAVE 3: Ajustar ID para la contraseña a "contrasena" (minúscula 'c') *** -->
+                        <input type="password" id="contrasena" name="password" placeholder="Ingresa tu contraseña" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="reg-email">Correo electrónico</label>
-                        <input type="email" id="reg-email" name="email" placeholder="Ingresa un correo electrónico">
+                        <label for="correo">Correo electrónico</label>
+                        <!-- *** CAMBIO CLAVE 4: Ajustar ID para el correo a "correo" (minúscula 'c') *** -->
+                        <input type="email" id="correo" name="email" placeholder="Ingresa un correo electrónico" required>
                     </div>
                     <div class="form-group">
-                        <label for="reg-confirm-password">Confirmar contraseña</label>
-                        <input type="password" id="reg-confirm-password" name="confirm-password" placeholder="Ingresa tu contraseña">
+                        <label for="confirmarContrasena">Confirmar contraseña</label>
+                        <!-- *** CAMBIO CLAVE 5: Ajustar ID para confirmar contraseña (opcional, solo para validación visual) *** -->
+                        <input type="password" id="confirmarContrasena" name="confirm-password" placeholder="Confirma tu contraseña" required>
                     </div>
                 </div>
+                <p id="mensajeError" style="color: red; margin-top: 10px;"></p>
+                <p id="mensajeExito" style="color: green; margin-top: 10px;"></p>
                 <button type="submit" class="btn-submit">Registrar</button>
             </form>
         </div>
     </main>
 
+    <!-- *** CAMBIO CLAVE 6: Enlazar los scripts al final del <body> *** -->
+    <script src="./js/supabaseClient.js" type="module"></script>
+    <script src="./js/usuarioService.js" type="module"></script>
+    <script src="./js/registro.js" type="module"></script> <!-- Asegurarse que el nombre del archivo sea 'registro.js' -->
 </body>
 </html>
