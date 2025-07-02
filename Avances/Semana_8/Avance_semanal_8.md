@@ -1,0 +1,3 @@
+# Avance Semana 8
+
+Esta semana terminamos el diseño visual de la página y dejamos listas todas las secciones principales. Sin embargo, aún no hemos podido avanzar en la funcionalidad, ya que nuestro conocimiento sobre bases de datos es limitado. Por ahora, solo hemos logrado conectar la base de datos, pero no hemos implementado ninguna API ni funcionalidades avanzadas. El trabajo sigue sin estar finalizado.
