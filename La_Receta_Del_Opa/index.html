@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/styles_navbar.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     <!--NAVBAR-->
@@ -46,7 +47,46 @@
                 </div>
             </div>
         </section>
+        <!-- Seccion de recetas del dia API -->
+<!-- Sección Receta del Día -->
+<div class="max-w-xl w-full bg-white rounded-2xl shadow-lg p-6 mx-auto">
+  <h1 class="text-3xl font-bold text-center text-green-600 mb-4">🌮 Receta del Día</h1>
+  <div id="receta" class="text-center">
+    <p class="text-gray-500">Cargando receta...</p>
+  </div>
+  <div class="text-center mt-6">
+    <button onclick="cargarReceta()" class="bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-xl">
+      🔁 Ver otra receta
+    </button>
+  </div>
+</div>
 
+<script>
+  function cargarReceta() {
+    const contenedor = document.getElementById('receta');
+    contenedor.innerHTML = '<p class="text-gray-500">Cargando receta...</p>';
+
+    fetch('https://www.themealdb.com/api/json/v1/1/random.php')
+      .then(res => res.json())
+      .then(data => {
+        const receta = data.meals[0];
+        contenedor.innerHTML = `
+          <h2 class="text-xl font-semibold text-gray-800 mb-2">${receta.strMeal}</h2>
+          <img src="${receta.strMealThumb}" alt="Imagen de la receta" class="w-full h-auto rounded-xl shadow mb-4">
+          <p class="text-sm text-gray-600 mb-1"><strong>Categoría:</strong> ${receta.strCategory}</p>
+          <p class="text-sm text-gray-600 mb-1"><strong>Origen:</strong> ${receta.strArea}</p>
+          <p class="text-gray-700 text-justify mt-4">${receta.strInstructions.substring(0, 400)}...</p>
+        `;
+      })
+      .catch(err => {
+        contenedor.innerHTML = `<p class="text-red-500">Ocurrió un error al cargar la receta. Intenta nuevamente.</p>`;
+        console.error(err);
+      });
+  }
+
+  // Cargar receta al iniciar la sección
+  window.onload = cargarReceta;
+</script>         
         <!-- Seccion de noticias -->
         <section class="news-section container">
             <h3 class="section-title">Noticias del Opa</h3>
